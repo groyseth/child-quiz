@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://groyseth:mongopass@cluster0.89osj.mongodb.net/TestQuiz?retryWrites=true&w=majority', {
+require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI || process.env.APP_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,    
 });
