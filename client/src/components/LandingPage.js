@@ -58,6 +58,21 @@ const handleSubmit = (event) => {
           </Form.Control.Feedback>
         </InputGroup>
       </Form.Group>
+      <Form.Group as={Col} md="4" >
+        <Form.Label>Password</Form.Label>
+        <InputGroup>
+          <InputGroup.Text id="inputGroupPrepend"></InputGroup.Text>
+          <Form.Control
+            type="text"
+            placeholder="Password"
+            aria-describedby="inputGroupPrepend"
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Please choose a username.
+          </Form.Control.Feedback>
+        </InputGroup>
+      </Form.Group>
     </Row>
   
     
