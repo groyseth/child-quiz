@@ -1,5 +1,7 @@
 import React from 'react';
 import MainComponent from './components/MainComponent';
+import SignUp from './components/LandingUser/SignUp';
+import Login from './components/LandingUser/Login';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -8,6 +10,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,7 +41,8 @@ function App() {
       <Switch>
           <Router>
             <Route exact path='/' component={MainComponent} />
-            
+            <Route path='/signUp' component={SignUp} />
+            <Route path='/logIn' component={Login} />
              </Router>
           </Switch>
    
