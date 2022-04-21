@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainComponent from './components/MainComponent';
 import SignUp from './components/LandingUser/SignUp';
 import Login from './components/LandingUser/Login';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,16 +10,17 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+import auth from './utils/auth';
+import QuizHomePage from './components/QuizHomePage';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
- 
+
   const token = localStorage.getItem('id_token');
- 
+
   return {
     headers: {
       ...headers,
@@ -29,25 +30,34 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
- 
+
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
-
+const test = auth.loggedIn()
+console.log(test);
 function App() {
   return (
     <ApolloProvider client={client}>
       <Switch>
-          <Router>
-            <Route exact path='/' component={MainComponent} />
-            <Route path='/signUp' component={SignUp} />
-            <Route path='/logIn' component={Login} />
-             </Router>
-          </Switch>
-   
-   </ApolloProvider>
+        <Router>
+          <Route exact path='/' component={MainComponent} />
+          <Route path='/signUp' component={SignUp} />
+          <Route path='/logIn' component={Login} />
+          <Route path='/quizDashboard' component={QuizHomePage} />
+         
+        </Router>
+      </Switch>
+
+    </ApolloProvider>
   );
 }
 
 export default App;
+
+{/* <Route
+  exact
+  path="/"
+  render={() => (loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />)}
+/>; */}

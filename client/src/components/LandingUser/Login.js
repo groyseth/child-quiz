@@ -36,7 +36,7 @@ export default function Login() {
           
           localStorage.setItem('userId', userid);
           Auth.login(data.login.token);
-          window.location.replace("/");
+          window.location.replace("/quizDashboard");
           
         } catch (e) {
           console.error(e);
