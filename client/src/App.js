@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MainComponent from './components/MainComponent';
 import SignUp from './components/LandingUser/SignUp';
 import Login from './components/LandingUser/Login';
+import Quiz1 from './pages/Quiz1';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import {
   ApolloClient,
@@ -46,7 +47,7 @@ function App() {
           <Route path='/signUp' component={SignUp} />
           <Route path='/logIn' component={Login} />
           <Route path='/quizDashboard' component={QuizHomePage} />
-         
+          <Route path='/quiz1' component={Quiz1} />
         </Router>
       </Switch>
 
