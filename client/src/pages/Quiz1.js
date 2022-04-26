@@ -7,13 +7,15 @@ export default function Quiz1() {
             questionOptions: [
                 { answerText: 'Square', isCorrect: false },
                 { answerText: 'Tryangle', isCorrect: true },
+                {answerText: 'Circle', isCorrect: false},
             ],
         },
         {
             questionText: 'Which one is the number 1',
             questionOptions: [
                 {answerText: '3', isCorrect: false},
-                {answerText: '1', isCorrect: true}
+                {answerText: '1', isCorrect: true},
+                {answerText: '4', isCorrect: false},
             ],
         },
     ]
@@ -49,9 +51,9 @@ export default function Quiz1() {
 						<div >{questions[currentQuestion].questionText}</div>
 					</div>
 					<div >
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
+						{/* {questions[currentQuestion].answerOptions.map((answerOption) => (
 							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-						))}
+						))} */}
 					</div>
 				</>
 			)}
