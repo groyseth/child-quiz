@@ -55,9 +55,9 @@ export default function App() {
 			// setShowAnswer(false);
 		} else {
 			// alert('no')
-			setTimeout(() => {
+			// setTimeout(() => {
 				setShowAnswer(true);
-			}, 500);
+			// }, 500);
 			
 		}
 
