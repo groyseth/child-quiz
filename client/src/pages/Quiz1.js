@@ -9,36 +9,36 @@ export default function App() {
 			questionText: 'Which one is a triangle',
 			answerOptions: [
 				{ answerText: <img src={images.tryangle} className='image' alt='test' />, isCorrect: true },
-				{ answerText: <img src={images.square} className='image' alt='square'  />, isCorrect: false },
-				{ answerText: <img src={images.trapiziod} className='image' alt='trapiziod'  />, isCorrect: false },
+				{ answerText: <img src={images.square} className='image' alt='square' />, isCorrect: false },
+				{ answerText: <img src={images.trapiziod} className='image' alt='trapiziod' />, isCorrect: false },
 				{ answerText: <img src={images.circle} className='image' alt='circle' />, isCorrect: false },
 			],
 		},
 		{
-			questionText: 'Who is CEO of Tesla?',
+			questionText: 'Which one is a circle?',
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
+				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: true },
+				{ answerText: <img src={images.square} alt='square' className='image'/>, isCorrect: false },
+				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image'/>, isCorrect: false },
+				{ answerText: <img src={images.tryangle} alt='tryangle' className='image' />, isCorrect: false },
 			],
 		},
 		{
-			questionText: 'The iPhone was created by which company?',
+			questionText: 'Which one is a square?',
 			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
+				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image' />, isCorrect: false },
+				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: false },
+				{ answerText: <img src={images.square} alt='square' className='image' />, isCorrect: true },
+				{ answerText: <img src={images.tryangle} alt='tryangle' className='image' />, isCorrect: false },
 			],
 		},
 		{
-			questionText: 'How many Harry Potter books are there?',
+			questionText: <img src={images.tryangle} alt="tryangle" className='image' /> ,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
+				{ answerText: '2', isCorrect: false },
+				{ answerText: '3', isCorrect: false },
+				{ answerText: '4', isCorrect: true },
 			],
 		},
 	];
@@ -46,33 +46,41 @@ export default function App() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [showAnswer, setShowAnswer] = useState(false);
 
-	const handleAnswerOptionClick = ( isCorrect) => {
-		
+	const handleAnswerOptionClick = async (isCorrect) => {
+
 		if (isCorrect) {
 			setScore(score + 1);
+			// setShowAnswer(false);
+		} else {
+			// alert('no')
+			setTimeout(() => {
+				setShowAnswer(true);
+			}, 500);
+			
 		}
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
-			// if(!isCorrect || isCorrect===false){
-			// 	const test = event.target.id
-			// 	console.log(test);
-			// 	var element = document.getElementById("test");
-  			// 	element.classList.toggle("style");
-			// }
-			setCurrentQuestion(nextQuestion);
+			setTimeout(() => {
+			setShowAnswer(false);
+				setCurrentQuestion(nextQuestion);
+			}, 3000);
+			
 		} else {
 			setShowScore(true);
 		}
 	};
+
+	
 	return (
 		<div className='app'>
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
 					<button ><Link to='/quizDashboard'>Home</Link> </button>
-					<button onClick={()=> window.location.reload()}> retry</button>
+					<button onClick={() => window.location.reload()}> retry</button>
 				</div>
 			) : (
 				<>
@@ -84,12 +92,21 @@ export default function App() {
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
+						<>
 							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+							</>
+							
 						))}
 					</div>
-					
+
 				</>
 			)}
+			{showAnswer ? (
+				<>
+					<div>Wong answer, Keep it up!</div>
+					
+				</>
+			) : (<></>)}
 		</div>
 	);
 }
