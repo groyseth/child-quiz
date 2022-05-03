@@ -1,12 +1,15 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Score } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find().populate()
+            return User.find().populate("scores")
         },
+        scores: async () => {
+          return Score.find()
+        }
     },
 
     Mutation: {
@@ -22,10 +25,7 @@ const resolvers = {
             if (!users) {
               throw new AuthenticationError('No user with this user name found!');
             }
-      
             const correctPw = await users.isCorrectPassword(password);
-            
-      
             if (!correctPw) {
               throw new AuthenticationError('Incorrect password!');
             }
@@ -33,6 +33,17 @@ const resolvers = {
             const token = signToken(users);
             return { token, users };
           },
+
+        addScore: async (parent, {userId, scored, createdAt}) => {
+          const score = await Score.create({scored,createdAt});
+          await User.findOneAndUpdate(
+            { _id: userId },
+            { $addToSet: { scores: score._id }}
+          );
+          
+          console.log(score);
+          return score;
+        }
     }
 }
 

@@ -8,6 +8,13 @@ type User {
     password: String
     firstName: String
     lastName: String
+    scores: [Score]
+}
+
+type Score {
+    _id: ID
+    scored: Int
+    createdAt: String
 }
 
 type Auth{
@@ -17,11 +24,13 @@ type Auth{
 
 type Query{
     users: [User]
+    scores: [Score]
 }
 
 type Mutation{
     addUser(userName: String!, password: String!, firstName: String!, lastName: String!): Auth
     login(userName: String!, password: String!): Auth
+    addScore(userId: ID! scored: Int! createdAt: String! ): Score
 }
 `;
 

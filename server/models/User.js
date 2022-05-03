@@ -24,6 +24,12 @@ const UserSchema = new Schema(
             required: true,
             minlength: 1,
         },
+        scores: [
+            {
+            type: Schema.Types.ObjectId,
+              ref: 'Score',
+            }
+          ]
     },
     {
         toJSON: {
