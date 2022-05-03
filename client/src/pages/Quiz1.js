@@ -33,7 +33,7 @@ export default function App() {
 			],
 		},
 		{
-			questionText: <img src={images.three} alt="tryangle" className='tri' /> ,
+			questionText: <img src={images.three} alt="three of them" className='tri' /> ,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false },
 				{ answerText: '2', isCorrect: false },
