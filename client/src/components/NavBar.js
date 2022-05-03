@@ -34,9 +34,6 @@ export default function NavBar() {
                          Logout
                       </Link>
                   </li>
-                   
-                 
-                 
               </ul>
               
           </nav>
