@@ -5,6 +5,9 @@ import { BrowserRouter as  Route, Link } from "react-router-dom";
 
 export default function NavBar() {
 
+    const handleLogout = () => {
+        Auth.logout();
+    }
         const [click, setClick] = useState(false)
       
         const handleClick = () => setClick(!click)
@@ -30,7 +33,7 @@ export default function NavBar() {
                       </Link>
                   </li>
                   <li className='nav-item'>
-                      <Link to="/" className='nav-links' onClick={closeMobileMenu}>
+                      <Link  className='nav-links' onClick={() => {handleLogout()}}>
                          Logout
                       </Link>
                   </li>

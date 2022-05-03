@@ -12,7 +12,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import auth from './utils/auth';
-import QuizHomePage from './components/QuizHomePage';
+import QuizHomePage from './components/QuizDash';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -43,6 +43,7 @@ function App() {
     <ApolloProvider client={client}>
       <Switch>
         <Router>
+          
           <Route exact path='/' component={MainComponent} />
           <Route path='/signUp' component={SignUp} />
           <Route path='/logIn' component={Login} />

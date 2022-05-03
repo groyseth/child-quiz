@@ -4,6 +4,7 @@ import images from '../assets/images/index';
 import "./quiz1.css"
 import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
+import Auth from '../utils/auth';
 export default function App() {
 
 	const questions = [
@@ -98,7 +99,10 @@ const handleSubmit = async (interger) =>{
 	
 	return (
 		<div className='app'>
-			{showScore ? (
+			{Auth.loggedIn()?(
+
+<>
+{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
 					<button ><Link to='/quizDashboard'>Home</Link> </button>
@@ -130,6 +134,14 @@ const handleSubmit = async (interger) =>{
 					
 				</>
 			) : (<></>)}
+
+</>
+
+			):(<>
+			
+			<h1>Please Login</h1>
+			
+			</>)}
 		</div>
 	);
 }
