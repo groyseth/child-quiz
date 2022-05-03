@@ -26,4 +26,14 @@ mutation Mutation($userName: String!, $password: String!) {
     }
   }
 }
-`
+`;
+
+export const ADD_SCORE = gql`
+mutation Mutation($userId: ID!, $scored: Int!, $createdAt: Int!) {
+  addScore(userId: $userId, scored: $scored, createdAt: $createdAt) {
+    scored
+    _id
+    createdAt
+  }
+}
+`;

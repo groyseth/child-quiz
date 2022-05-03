@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, Route } from 'react-router-dom'
 import images from '../assets/images/index';
 import "./quiz1.css"
+import { useMutation } from '@apollo/client';
+import { ADD_SCORE } from '../utils/mutations';
 export default function App() {
 
 	const questions = [
@@ -42,7 +44,7 @@ export default function App() {
 			],
 		},
 	];
-
+	const [addScore, { error }] = useMutation(ADD_SCORE);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
@@ -72,6 +74,26 @@ export default function App() {
 			setShowScore(true);
 		}
 	};
+const handleSubmit = async (interger) =>{
+	console.log(interger);
+	try {
+
+		const { data } = await addScore({
+		  variables: {
+			userId: localStorage.getItem('userId'),
+			scored: interger,
+			createdAt: "",
+		  },
+		  
+		});
+		console.log(data);
+		// console.log(data.addComment.comments);
+		
+		
+	  } catch (err) {
+		console.error(JSON.stringify(err));
+	  }
+}
 
 	
 	return (
@@ -80,7 +102,8 @@ export default function App() {
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
 					<button ><Link to='/quizDashboard'>Home</Link> </button>
-					<button onClick={() => window.location.reload()}> retry</button>
+					<button onClick={() => window.location.reload()}> Retry</button>
+					<button onClick={() => handleSubmit(score)}>Save Score</button>
 				</div>
 			) : (
 				<>
