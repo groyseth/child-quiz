@@ -33,12 +33,12 @@ export default function App() {
 			],
 		},
 		{
-			questionText: <img src={images.tryangle} alt="tryangle" className='image' /> ,
+			questionText: <img src={images.three} alt="tryangle" className='tri' /> ,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false },
 				{ answerText: '2', isCorrect: false },
-				{ answerText: '3', isCorrect: false },
-				{ answerText: '4', isCorrect: true },
+				{ answerText: '3', isCorrect: true },
+				{ answerText: '4', isCorrect: false },
 			],
 		},
 	];
