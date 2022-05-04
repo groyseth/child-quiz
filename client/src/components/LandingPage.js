@@ -12,16 +12,12 @@ export default function LandingPage() {
   return (
 
     <>
-      <h1>LandingPage</h1>
-      <button>
-        <Link to='signUp'>
-          SignUp
-        </Link>
+      <h1>A children's Learning Site!</h1>
+      <button onClick={() => window.location.replace('/signUp')} className="btn btn-block btn-primary mx-3">
+        Sign Up
       </button>
-      <button>
-        <Link to='logIn'>
-          Login
-        </Link>
+      <button onClick={() => window.location.replace('/login')} className="btn btn-block btn-primary mx-3">
+       Login
       </button>
 
     </>

@@ -9,6 +9,9 @@ const resolvers = {
         },
         scores: async () => {
           return Score.find()
+        },
+        singleUser: async (parent, {userId}) => {
+          return User.findOne({userId}).populate("scores")
         }
     },
 

@@ -33,7 +33,7 @@ export default function NavBar() {
                       </Link>
                   </li>
                   <li className='nav-item'>
-                      <Link  className='nav-links' onClick={() => {handleLogout()}}>
+                      <Link to="/" className='nav-links' onClick={() => {handleLogout()}}>
                          Logout
                       </Link>
                   </li>

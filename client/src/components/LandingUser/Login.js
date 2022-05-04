@@ -80,9 +80,7 @@ export default function Login() {
                 style={{ cursor: 'pointer' }}
                 type="submit"
               >
-                
                 Sign In
-               
               </button>
             </form>
         
@@ -93,6 +91,7 @@ export default function Login() {
               
             </div>
           )}
+          <button onClick={()=> window.location.replace('/')} className='my-3  bg-danger text-white'>Back</button>
         </div>
       </div>
     </div>

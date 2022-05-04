@@ -25,6 +25,7 @@ type Auth{
 type Query{
     users: [User]
     scores: [Score]
+    singleUser(userId: ID!): User
 }
 
 type Mutation{

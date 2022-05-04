@@ -92,9 +92,7 @@ export default function SignUp() {
                 className="btn btn-block btn-primary"
                 style={{ cursor: 'pointer' }}
                 type="submit"
-                
               >Submit
-                
               </button>
             </form>
               )}
@@ -104,6 +102,7 @@ export default function SignUp() {
               {error.message}
             </div>
           )}
+          <button onClick={()=> window.location.replace('/')} className='my-3 bg-danger text-white'>Back</button>
         </div>
       </div>
     </div>

@@ -1,18 +1,17 @@
 import { gql } from "@apollo/client";
 
 export const SCORES = gql`
-query Query {
-    users {
+query Query($userId: ID!) {
+  singleUser(userId: $userId) {
+    _id
+    userName
+    firstName
+    lastName
+    scores {
       _id
-      userName
-      password
-      firstName
-      lastName
-      scores {
-        _id
-        scored
-        createdAt
-      }
+      scored
+      createdAt
     }
   }
+}
 `;
