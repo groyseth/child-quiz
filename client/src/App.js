@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import MainComponent from './components/MainComponent';
 import SignUp from './components/LandingUser/SignUp';
 import Login from './components/LandingUser/Login';
 import Quiz1 from './pages/Quiz1';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import DemoQuiz from './pages/DemoQuiz';
+import Profile from './pages/Profile'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -46,10 +49,12 @@ function App() {
           {test?(<>
           <Route path='/quizDashboard' component={QuizHomePage} />
           <Route path='/quiz1' component={Quiz1} />
+          <Route path='/profile' component={Profile} />
           </>):(<>
             <Route exact path='/' component={MainComponent} />
           <Route path='/signUp' component={SignUp} />
           <Route path='/logIn' component={Login} />
+          <Route path='/DemoQuiz' component={DemoQuiz} />
           </>)}
      
         </Router>
@@ -60,9 +65,3 @@ function App() {
 }
 
 export default App;
-
-{/* <Route
-  exact
-  path="/"
-  render={() => (loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />)}
-/>; */}

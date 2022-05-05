@@ -1,0 +1,6 @@
+.backGround{
+    background-image: url(../../src/assets/images/background/pexels-tirachard-kumtanom-584305.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}

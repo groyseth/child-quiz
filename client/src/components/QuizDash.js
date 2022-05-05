@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import NavBar from './NavBar'
 import './QuizHome.css'
-// import Quiz1 from '../pages/Quiz1'
+import './Main.css'
 import Auth from '../utils/auth'
 import { useQuery } from '@apollo/client'
 import { SCORES } from '../utils/query'
@@ -24,7 +24,7 @@ for (let i = 0; i < singScore.length; i++) {
 
 
   return (
-    <>
+    <div className='backGround'>
           <NavBar />
           <div className='quizSelect'>quiz selection
             <button onClick={() => window.location.replace('/quiz1')}>
@@ -35,6 +35,6 @@ for (let i = 0; i < singScore.length; i++) {
           <h1>{singleUser.userName} has a score of {result}!</h1>
           <p>Great Job {singleUser.userName} and keep up the good work!!</p>
         </div>
-    </>
+    </div>
   )
 }

@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import images from '../assets/images/index';
 import "./quiz1.css"
-import { useMutation } from '@apollo/client';
-import { ADD_SCORE } from '../utils/mutations';
-export default function Quiz1() {
+export default function DemoQuiz() {
 
 	const questions = [
 		{
-			questionText: 'Which one is a triangle', 
+			questionText: 'What is 1 + 1?',
 			answerOptions: [
-				{ answerText: <img src={images.tryangle} className='image' alt='test' />, isCorrect: true, id: 1 },
-				{ answerText: <img src={images.square} className='image' alt='square' />, isCorrect: false, id: 2 },
-				{ answerText: <img src={images.trapiziod} className='image' alt='trapiziod' />, isCorrect: false, id: 3 },
-				{ answerText: <img src={images.circle} className='image' alt='circle' />, isCorrect: false, id: 4 },
+				{ answerText: "1", isCorrect: false, id: 1 },
+				{ answerText: "2", isCorrect: true, id: 2 },
+				{ answerText: "3", isCorrect: false, id: 3 },
+				{ answerText: "4", isCorrect: false, id: 4 },
 			],
 		},
 		{
@@ -43,8 +41,7 @@ export default function Quiz1() {
 			],
 		},
 	];
-	console.log(questions);
-	const [addScore] = useMutation(ADD_SCORE);
+	
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
@@ -72,22 +69,7 @@ export default function Quiz1() {
 			setShowScore(true);
 		}
 	}
-	const handleSubmit = async (interger) => {
-		console.log(interger);
-		try {
-			const { data } = await addScore({
-				variables: {
-					userId: localStorage.getItem('userId'),
-					scored: interger,
-					createdAt: "",
-				},
-			});
-			window.location.replace('/quizDashboard')
-			console.log(data);
-		} catch (err) {
-			console.error(JSON.stringify(err));
-		}
-	}
+
 	return (
 		<div className='app'>
 			
@@ -96,9 +78,9 @@ export default function Quiz1() {
 					{showScore ? (
 						<div className='score-section'>
 							You scored {score} out of {questions.length}
-							<button onClick={() => window.location.replace('/quizDashboard')} >Home</button>
+							<button onClick={() => window.location.replace('/')} >To Home Page</button>
 							<button onClick={() => window.location.reload()}> Retry</button>
-							<button onClick={() => handleSubmit(score)}>Save Score</button>
+							
 						</div>
 					) : (
 						<>
@@ -110,11 +92,10 @@ export default function Quiz1() {
 							</div>
 							<div className='answer-section'>
 								{questions[currentQuestion].answerOptions.map((answerOption) => (
-									<div key={answerOption.id} className="questions">
+									<div key={answerOption.id} className='questions'>
 										<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 									</div>
 								))}
-								
 							</div>
 						</>
 					)}
