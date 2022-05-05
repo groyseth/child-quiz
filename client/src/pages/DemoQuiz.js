@@ -97,6 +97,7 @@ export default function DemoQuiz() {
 									</div>
 								))}
 							</div>
+							<button onClick={()=>window.location.replace('/')} style={{marginTop: '10vh'}}>Quit</button>
 						</>
 					)}
 					{showAnswer ? (

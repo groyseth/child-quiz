@@ -116,6 +116,7 @@ export default function Quiz1() {
 								))}
 								
 							</div>
+							<button onClick={()=>window.location.replace('/quizDashboard')} style={{marginTop: '10vh'}}>Quit</button>
 						</>
 					)}
 					{showAnswer ? (
