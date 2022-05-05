@@ -23,17 +23,22 @@ for (let i = 0; i < singScore.length; i++) {
 
 
   return (
-    <div className='backGround'>
+    <div className='backGround' >
           <NavBar />
-          <div className='quizSelect'>quiz selection
+          <div className='dash'>
+           <div style={{marginTop: '18%'}}>
+            <h1>quiz selection</h1>
+            <div className='quizSelect' >
             <button onClick={() => window.location.replace('/quiz1')}>
               Learn Your Shapes!
             </button>
             <button onClick={() => window.location.replace('/quiz2')}>
               Quiz 2
             </button>
+            </div>
+            </div>
           </div>
-        <div>
+        <div style={{textAlign: 'center'}}>
           <h1>{singleUser.userName} has a score of {result}!</h1>
           <p>Great Job {singleUser.userName} and keep up the good work!!</p>
         </div>

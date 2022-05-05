@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import Auth from "../utils/auth"
 import { BrowserRouter as  Route, Link } from "react-router-dom";
-
+import './Main.css'
 
 export default function NavBar() {
 
