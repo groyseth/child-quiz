@@ -51,12 +51,8 @@ export default function Login() {
       <div className="card">
         <h4 className="card-header bg-dark text-light p-2">Login</h4>
         <div className="card-body ">
-          {data ? (
-          
-              
-              <Link to={"/"}>You May Enter</Link>
-             
-            
+          {data ? (             
+           <h1>LOADING</h1>
           ) : (
             <form onSubmit={handleFormSubmit}>
               <input

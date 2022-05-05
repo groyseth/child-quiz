@@ -50,9 +50,7 @@ export default function SignUp() {
         <h4>Sign Up</h4>
         <div >
         {data ? (
-                  
-                  <Link to={"/"}>click here</Link>
-
+            <h1>LOADING</h1>
               ) : (
          
             <form onSubmit={handleFormSubmit}>

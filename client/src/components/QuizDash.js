@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link, Route } from 'react-router-dom'
 import NavBar from './NavBar'
 import './QuizHome.css'
 import './Main.css'
-import Auth from '../utils/auth'
 import { useQuery } from '@apollo/client'
 import { SCORES } from '../utils/query'
 
@@ -13,6 +11,7 @@ export default function QuizHomePage() {
   const { error, data } = useQuery(SCORES, {
     variables: { userId: localStorage.getItem('userId') }
   });
+  console.log(error);
   const singleUser = data?.singleUser || [];
   const singScore = data?.singleUser.scores || [];
 
@@ -28,7 +27,10 @@ for (let i = 0; i < singScore.length; i++) {
           <NavBar />
           <div className='quizSelect'>quiz selection
             <button onClick={() => window.location.replace('/quiz1')}>
-              Quiz 1
+              Learn Your Shapes!
+            </button>
+            <button onClick={() => window.location.replace('/quiz2')}>
+              Quiz 2
             </button>
           </div>
         <div>

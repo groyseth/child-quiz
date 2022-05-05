@@ -6,6 +6,7 @@ import Login from './components/LandingUser/Login';
 import Quiz1 from './pages/Quiz1';
 import DemoQuiz from './pages/DemoQuiz';
 import Profile from './pages/Profile'
+import Quiz2 from './pages/Quiz2';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -50,6 +51,7 @@ function App() {
           <Route path='/quizDashboard' component={QuizHomePage} />
           <Route path='/quiz1' component={Quiz1} />
           <Route path='/profile' component={Profile} />
+          <Route path='/quiz2' component={Quiz2} />
           </>):(<>
             <Route exact path='/' component={MainComponent} />
           <Route path='/signUp' component={SignUp} />
