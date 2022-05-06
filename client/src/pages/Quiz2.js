@@ -3,39 +3,45 @@ import images from '../assets/images/index';
 import "./quiz1.css"
 import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
-
+import { Card } from 'react-bootstrap';
 export default function Quiz2() {
 
-    const questions = [
+	const questions = [
 		{
-			questionText: 'Which one is a triangle', 
+			questionText: 'What is 1 + 1?',
 			answerOptions: [
-				{ answerText: <img src={images.tryangle} className='image' alt='test' />, isCorrect: true, id: 1 },
-				{ answerText: <img src={images.square} className='image' alt='square' />, isCorrect: false, id: 2 },
-				{ answerText: <img src={images.trapiziod} className='image' alt='trapiziod' />, isCorrect: false, id: 3 },
-				{ answerText: <img src={images.circle} className='image' alt='circle' />, isCorrect: false, id: 4 },
+				{ answerText: '2', isCorrect: true, id: 1 },
+				{ answerText: '1', isCorrect: false, id: 2 },
+				{ answerText: '5', isCorrect: false, id: 3 },
+				{ answerText: '10', isCorrect: false, id: 4 },
 			],
 		},
 		{
-			questionText: 'Which one is a circle?', 
+			questionText: 'Can you count up to 5?',
 			answerOptions: [
-				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: true, id: 11 },
-				{ answerText: <img src={images.square} alt='square' className='image' />, isCorrect: false, id: 22 },
-				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image' />, isCorrect: false, id: 33 },
-				{ answerText: <img src={images.tryangle} alt='tryangle' className='image' />, isCorrect: false, id: 44 },
+				{ answerText: '1, 2, 3, 4, 5', isCorrect: true, id: 11 },
+				{ answerText: '5, 4, 3, 2, 1', isCorrect: false, id: 22 },
+				{ answerText: '1, 2, 3', isCorrect: false, id: 33 },
+				{ answerText: '2', isCorrect: false, id: 44 },
 			],
 		},
 		{
-			questionText: 'Which one is a square?', 
+			questionText: <div>
+				<img src={images.fingers}></img>
+				<h1>Can you count the fingers?</h1>
+				</div>,
 			answerOptions: [
-				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image' />, isCorrect: false, id: 111 },
-				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: false, id: 222 },
-				{ answerText: <img src={images.square} alt='square' className='image' />, isCorrect: true, id: 333 },
-				{ answerText: <img src={images.tryangle} alt='tryangle' className='image' />, isCorrect: false, id: 444 },
+				{ answerText: '1', isCorrect: false, id: 111 },
+				{ answerText: '2', isCorrect: false, id: 222 },
+				{ answerText: '4', isCorrect: true, id: 333 },
+				{ answerText: '5', isCorrect: false, id: 444 },
 			],
 		},
 		{
-			questionText: <img src={images.three} alt="three of them" className='tri' />,
+			questionText: <div>
+				<img src={images.cats}></img>
+				<h1>How many Cats are there?</h1>
+				</div>,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false, id: 1111 },
 				{ answerText: '2', isCorrect: false, id: 2222 },
@@ -89,48 +95,49 @@ export default function Quiz2() {
 			console.error(JSON.stringify(err));
 		}
 	}
-  return (
-    <div className='app'>
-			
+	return (
+		<div className='app'>
 
-				<>
-					{showScore ? (
-						<div className='score-section'>
-							You scored {score} out of {questions.length}
-							<button onClick={() => window.location.replace('/quizDashboard')} >Home</button>
-							<button onClick={() => window.location.reload()}> Retry</button>
-							<button onClick={() => handleSubmit(score)}>Save Score</button>
+
+			<>
+				{showScore ? (
+					<div className='score-section'>
+						You scored {score} out of {questions.length}
+						<button onClick={() => window.location.replace('/quizDashboard')} >Home</button>
+						<button onClick={() => window.location.reload()}> Retry</button>
+						<button onClick={() => handleSubmit(score)}>Save Score</button>
+					</div>
+				) : (
+					<>
+						<div className='endText'>
+							<div className='question-count'>
+								<span>Question {currentQuestion + 1}</span>/{questions.length}
+							</div>
+							<div className='question-text'>{questions[currentQuestion].questionText}</div>
 						</div>
-					) : (
-						<>
-							<div className='endText'>
-								<div className='question-count'>
-									<span>Question {currentQuestion + 1}</span>/{questions.length}
+						<div className='answer-section'>
+							{questions[currentQuestion].answerOptions.map((answerOption) => (
+								<div key={answerOption.id} className="questions">
+									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 								</div>
-								<div className='question-text'>{questions[currentQuestion].questionText}</div>
-							</div>
-							<div className='answer-section'>
-								{questions[currentQuestion].answerOptions.map((answerOption) => (
-									<div key={answerOption.id} className="questions">
-										<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-									</div>
-								))}
-								
-							</div>
-						</>
-					)}
-					{showAnswer ? (
-						<div style={{marginTop: '10vh', textAlign: 'center'}}>
-							<div>Wong answer, Keep it up!</div>
-							<button onClick={() => handleNextButton()}>Next Question</button>
+							))}
+
 						</div>
-					) : (<></>)}
-					{showCorrectAnswer ? (<div style={{marginTop: '10vh', textAlign: 'center'}}>
-						<h1>Correct!</h1>
+						<button onClick={()=>window.location.replace('/quizDashboard')} style={{marginTop: '10vh'}}>Quit</button>
+					</>
+				)}
+				{showAnswer ? (
+					<div style={{ marginTop: '10vh', textAlign: 'center' }}>
+						<div>Wong answer, Keep it up!</div>
 						<button onClick={() => handleNextButton()}>Next Question</button>
-					</div>) : (<></>)}
-				</>
-			
+					</div>
+				) : (<></>)}
+				{showCorrectAnswer ? (<div style={{ marginTop: '10vh', textAlign: 'center' }}>
+					<h1>Correct!</h1>
+					<button onClick={() => handleNextButton()}>Next Question</button>
+				</div>) : (<></>)}
+			</>
+
 		</div>
-  )
+	)
 }

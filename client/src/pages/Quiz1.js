@@ -82,7 +82,7 @@ export default function Quiz1() {
 					createdAt: "",
 				},
 			});
-			window.location.replace('/quizDashboard')
+			// window.location.replace('/quizDashboard')
 			console.log(data);
 		} catch (err) {
 			console.error(JSON.stringify(err));

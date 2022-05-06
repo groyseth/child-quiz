@@ -33,7 +33,7 @@ for (let i = 0; i < singScore.length; i++) {
               Learn Your Shapes!
             </button>
             <button onClick={() => window.location.replace('/quiz2')}>
-              Quiz 2
+              Learn Your Numbers!
             </button>
             </div>
             </div>
