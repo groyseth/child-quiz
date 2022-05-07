@@ -32,7 +32,10 @@ export default function DemoQuiz() {
 			],
 		},
 		{
-			questionText: <img src={images.three} alt="three of them" className='tri' />,
+			questionText: <div>
+			<img src={images.three} alt="three of them" className='tri' />
+			<h1>Can you count the number of triangles?</h1>
+			</div>,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false, id: 1111 },
 				{ answerText: '2', isCorrect: false, id: 2222 },
