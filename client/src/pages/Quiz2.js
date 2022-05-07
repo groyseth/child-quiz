@@ -96,7 +96,7 @@ export default function Quiz2() {
 		}
 	}
 	return (
-		<div className='app'>
+		<div className='quizBackGround'>
 
 
 			<>

@@ -44,8 +44,8 @@ export default function SignUp() {
 
 
   return (
-    <main className=" cardTest">
-    <div className="col-12 col-lg-10">
+    <main className=" cardTest backGround">
+    <div className="col-12 col-lg-10 cardCenter">
       <div>
         <h4>Sign Up</h4>
         <div >

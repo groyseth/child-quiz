@@ -19,9 +19,31 @@
     grid-template-rows: 83px;
     grid-gap: 67px;
     width: 100vw;
-    background-color: rgb(244, 240, 244);
+    /* background-color: rgb(244, 240, 244); */
     margin-top: 26vh;
 }
 .endText{
     text-align: center;
+    background: darkgoldenrod;
+    font-family: cursive;
+    text-shadow: 1px 1px blue;
+    border: 2px black solid;
 }
+.animation{
+    animation-name: slidein;
+    animation-duration: .5s;
+    /* animation-fill-mode: forwards; */
+    font-family: cursive;
+    text-shadow: 1px 1px blue;
+}
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }

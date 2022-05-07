@@ -46,10 +46,10 @@ export default function Login() {
 
 
   return (
-    <main className="cardTest ">
-    <div className="col-12 col-lg-10">
-      <div className="card">
-        <h4 className="card-header bg-dark text-light p-2">Login</h4>
+    <main className="cardTest backGround">
+    <div className="col-12 col-lg-10 cardCenter">
+      <div className="">
+        <h4 className="">Login</h4>
         <div className="card-body ">
           {data ? (             
            <h1>LOADING</h1>

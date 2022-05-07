@@ -4,3 +4,28 @@
     width: 100vw;
     background-size: cover;
 }
+.quizBackGround {
+    background-image: url(../src/assets/images/background/quizBackGround.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
+.landingStyle{
+    text-align-last: center;
+    top: 35%;
+    position: relative;
+}
+.cardTest{
+    text-align: -webkit-center;
+    position: relative;
+}
+.cardCenter{
+    position: relative;
+    top: 22%;
+    border: 2px black solid;
+    background-color: antiquewhite;
+}
+.profileStyle{
+    position: relative;
+    top: 22vh;
+}

@@ -3,6 +3,10 @@ import images from '../assets/images/index';
 import "./quiz1.css"
 import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
+import ReactCSSTransitionGroup from 'react-transition-group';
+
+ 
+
 export default function Quiz1() {
 
 	const questions = [
@@ -70,6 +74,7 @@ export default function Quiz1() {
 			setShowAnswer(false);
 			setCorrectAnswer(false);
 			setCurrentQuestion(nextQuestion);
+			
 		} else {
 			setShowAnswer(false);
 			setCorrectAnswer(false);
@@ -94,7 +99,7 @@ export default function Quiz1() {
 		}
 	}
 	return (
-		<div className='app'>
+		<div className='quizBackGround'>
 			
 
 				<>
@@ -132,7 +137,7 @@ export default function Quiz1() {
 					) : (<></>)}
 					{showCorrectAnswer ? (<div style={{marginTop: '6vh', textAlign: 'center'}}>
 						<h1>Correct!</h1>
-						<button onClick={() => handleNextButton()}>Next Question</button>
+						<button onClick={() => handleNextButton() }>Next Question</button>
 					</div>) : (<></>)}
 				</>
 			

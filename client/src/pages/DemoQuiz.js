@@ -74,7 +74,7 @@ export default function DemoQuiz() {
 	}
 
 	return (
-		<div className='app'>
+		<div className='quizBackGround'>
 			
 
 				<>
@@ -100,18 +100,20 @@ export default function DemoQuiz() {
 									</div>
 								))}
 							</div>
-							<button onClick={()=>window.location.replace('/')} style={{marginTop: '10vh'}}>Quit</button>
+							<button onClick={()=>window.location.replace('/')} style={{marginTop: '10vh'}} >Quit</button>
 						</>
 					)}
 					{showAnswer ? (
-						<div style={{marginTop: '10vh', textAlign: 'center'}}>
+						<div style={{marginTop: '10vh', textAlign: 'center'}} className='animation'>
 							<div>Almost, Keep it up!</div>
 							<button onClick={() => handleNextButton()}>Next Question</button>
 						</div>
 					) : (<></>)}
-					{showCorrectAnswer ? (<div style={{marginTop: '10vh', textAlign: 'center'}}>
-						<h1>Correct!</h1>
+					{showCorrectAnswer ? (<div style={{marginTop: '10vh', textAlign: 'center'}} className='animation'>
+						
+						<h1 >Correct!</h1>
 						<button onClick={() => handleNextButton()}>Next Question</button>
+						
 					</div>) : (<></>)}
 				</>
 			

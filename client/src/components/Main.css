@@ -12,6 +12,9 @@
     align-items: center;
     font-size: 1.2rem;
  /* position:fixed; */
+ background: rgba(6,114,245, 0.9);
+    height: 5vh;
+
   }
 
 .nav-item {
@@ -42,5 +45,5 @@
     justify-content: end;
     margin-right: 2rem;
     position: relative;
-    top: -33px;
+    top: -27px;
   }
