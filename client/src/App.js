@@ -7,6 +7,7 @@ import Quiz1 from './pages/Quiz1';
 import DemoQuiz from './pages/DemoQuiz';
 import Profile from './pages/Profile'
 import Quiz2 from './pages/Quiz2';
+import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ApolloClient,

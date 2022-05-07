@@ -38,3 +38,17 @@ mutation Mutation($userId: ID!, $scored: Int!, $createdAt: String!, $quizTaken: 
   }
 }
 `;
+
+export const DELETESCORE = gql`
+mutation Mutation($userId: ID!) {
+  deleteScore(userId: $userId) {
+    userName
+    password
+    scores {
+      scored
+      createdAt
+      quizTaken
+    }
+  }
+}
+`;

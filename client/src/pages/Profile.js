@@ -1,10 +1,30 @@
 import React from 'react'
 import ProfileNav from '../components/ProfileNav'
-import { useQuery } from '@apollo/client'
+import { useQuery, useMutation } from '@apollo/client'
 import { SCORES } from '../utils/query'
+import { DELETESCORE } from '../utils/mutations';
 
 
 export default function Profile() {
+ const [removeScore] = useMutation(DELETESCORE);
+
+const handleReset = async () =>{
+		try {
+			const { data } = await removeScore({
+				variables: {
+					userId: localStorage.getItem('userId'),
+				},
+			});
+			window.location.reload();
+			console.log(data);
+		} catch (err) {
+			console.error(JSON.stringify(err));
+		}
+	}
+
+
+
+
 
   const { error, data } = useQuery(SCORES, {
     variables: { userId: localStorage.getItem('userId') }
@@ -23,7 +43,7 @@ for (let i = 0; i < singleQuiz.length; i++) {
 
 
   return (
-    <>
+    <div className='backGround'>
     <ProfileNav />
     <div>Profile
     <h1>Hello {singleUser.firstName} {singleUser.lastName}</h1>
@@ -32,8 +52,8 @@ for (let i = 0; i < singleQuiz.length; i++) {
 <div>
 <h1>Youve taken {quizResult} quizes</h1>
 </div>
-
-    </>
+<button onClick={()=> handleReset()}>Reset Scores</button>
+    </div>
   )
 }
 

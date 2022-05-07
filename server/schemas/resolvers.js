@@ -46,8 +46,30 @@ const resolvers = {
           
           console.log(score);
           return score;
-        }
-    }
+        },
+        // removeScore: async (parent, {userId}) => {
+        //   const score = await Score.deleteMany({scores: score})
+        //   await User.findOneAndUpdate(
+        //     { _id: userId },
+        //     { $pull: { scores: score.score}}
+        //   );
+          
+        //   console.log(score);
+          
+        // }
+        deleteScore: async (parent, {  userId}) => {
+          try{
+          const currentUser = await User.findOne({_id:userId})
+          console.log(currentUser);
+          const deletedScore = await Score.deleteMany({_id:currentUser.scores})
+          return deletedScore;
+          }catch(err){
+            console.log(err); 
+            return; 
+          }
+    
+        },
+      }
 }
 
 module.exports = resolvers;
