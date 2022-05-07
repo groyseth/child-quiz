@@ -15,6 +15,14 @@ export default function QuizHomePage() {
   const singleUser = data?.singleUser || [];
   const singScore = data?.singleUser.scores || [];
 
+// const singleQuiz = data?.singleUser.scores || [];
+
+// var quizResult = 0;
+// for (let i = 0; i < singleQuiz.length; i++) {
+//   const element = singleQuiz[i].quizTaken;
+//   quizResult += element;
+// }
+
 var result = 0;
 for (let i = 0; i < singScore.length; i++) {
   const element = singScore[i].scored;

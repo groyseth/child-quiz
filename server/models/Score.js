@@ -9,8 +9,10 @@ const ScoreSchema = new Schema({
         type: Date,
         default: Date.now,
         // get: (timestamp) => dateFormat(timestamp),
-        
-        
+      },
+      quizTaken: {
+        type:Number,
+        default: 0,
       },
       user: 
           {

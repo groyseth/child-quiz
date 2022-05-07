@@ -29,11 +29,12 @@ mutation Mutation($userName: String!, $password: String!) {
 `;
 
 export const ADD_SCORE = gql`
-mutation Mutation($userId: ID!, $scored: Int!, $createdAt: String!) {
-  addScore(userId: $userId, scored: $scored, createdAt: $createdAt) {
-    scored
+mutation Mutation($userId: ID!, $scored: Int!, $createdAt: String!, $quizTaken: Int!) {
+  addScore(userId: $userId, scored: $scored, createdAt: $createdAt, quizTaken: $quizTaken) {
     _id
+    scored
     createdAt
+    quizTaken
   }
 }
 `;

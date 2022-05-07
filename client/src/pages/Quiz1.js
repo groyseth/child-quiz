@@ -34,7 +34,11 @@ export default function Quiz1() {
 			],
 		},
 		{
-			questionText: <img src={images.three} alt="three of them" className='tri' />,
+			questionText: 
+			<div>
+			<img src={images.three} alt="three of them" className='tri' />
+			<h1>Can you count the number of triangles?</h1>
+			</div>,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false, id: 1111 },
 				{ answerText: '2', isCorrect: false, id: 2222 },
@@ -80,9 +84,10 @@ export default function Quiz1() {
 					userId: localStorage.getItem('userId'),
 					scored: interger,
 					createdAt: "",
+					quizTaken: 1,
 				},
 			});
-			// window.location.replace('/quizDashboard')
+			window.location.replace('/quizDashboard')
 			console.log(data);
 		} catch (err) {
 			console.error(JSON.stringify(err));
@@ -125,7 +130,7 @@ export default function Quiz1() {
 							<button onClick={() => handleNextButton()}>Next Question</button>
 						</div>
 					) : (<></>)}
-					{showCorrectAnswer ? (<div style={{marginTop: '10vh', textAlign: 'center'}}>
+					{showCorrectAnswer ? (<div style={{marginTop: '6vh', textAlign: 'center'}}>
 						<h1>Correct!</h1>
 						<button onClick={() => handleNextButton()}>Next Question</button>
 					</div>) : (<></>)}

@@ -11,6 +11,7 @@ query Query($userId: ID!) {
       _id
       scored
       createdAt
+      quizTaken
     }
   }
 }

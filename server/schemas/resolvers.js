@@ -37,8 +37,8 @@ const resolvers = {
             return { token, users };
           },
 
-        addScore: async (parent, {userId, scored, createdAt}) => {
-          const score = await Score.create({scored,createdAt});
+        addScore: async (parent, {userId, scored, createdAt, quizTaken}) => {
+          const score = await Score.create({scored,createdAt, quizTaken});
           await User.findOneAndUpdate(
             { _id: userId },
             { $addToSet: { scores: score._id }}

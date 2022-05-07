@@ -3,7 +3,6 @@ import images from '../assets/images/index';
 import "./quiz1.css"
 import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
-import { Card } from 'react-bootstrap';
 export default function Quiz2() {
 
 	const questions = [
@@ -27,7 +26,7 @@ export default function Quiz2() {
 		},
 		{
 			questionText: <div>
-				<img src={images.fingers}></img>
+				<img src={images.fingers} alt='fingers'></img>
 				<h1>Can you count the fingers?</h1>
 				</div>,
 			answerOptions: [
@@ -39,7 +38,7 @@ export default function Quiz2() {
 		},
 		{
 			questionText: <div>
-				<img src={images.cats}></img>
+				<img src={images.cats} alt='cats'></img>
 				<h1>How many Cats are there?</h1>
 				</div>,
 			answerOptions: [
@@ -87,6 +86,7 @@ export default function Quiz2() {
 					userId: localStorage.getItem('userId'),
 					scored: interger,
 					createdAt: "",
+					quizTaken: 1,
 				},
 			});
 			window.location.replace('/quizDashboard')

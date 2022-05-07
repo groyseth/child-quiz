@@ -15,6 +15,7 @@ type Score {
     _id: ID
     scored: Int
     createdAt: String
+    quizTaken: Int
 }
 
 type Auth{
@@ -31,7 +32,7 @@ type Query{
 type Mutation{
     addUser(userName: String!, password: String!, firstName: String!, lastName: String!): Auth
     login(userName: String!, password: String!): Auth
-    addScore(userId: ID! scored: Int! createdAt: String! ): Score
+    addScore(userId: ID! scored: Int! createdAt: String! quizTaken: Int! ): Score
 }
 `;
 
