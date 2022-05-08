@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import images from '../assets/images/index';
+import QuizNav from '../components/QuizNav';
 import "./quiz1.css"
 export default function DemoQuiz() {
 
@@ -75,7 +76,7 @@ export default function DemoQuiz() {
 
 	return (
 		<div className='quizBackGround'>
-			
+			<QuizNav />
 
 				<>
 					{showScore ? (
@@ -100,16 +101,16 @@ export default function DemoQuiz() {
 									</div>
 								))}
 							</div>
-							<button onClick={()=>window.location.replace('/')} style={{marginTop: '10vh'}} >Quit</button>
+					
 						</>
 					)}
 					{showAnswer ? (
-						<div style={{marginTop: '10vh', textAlign: 'center'}} className='animation'>
+						<div style={{marginTop: '11vh', textAlign: 'center'}} className='animation'>
 							<div>Almost, Keep it up!</div>
 							<button onClick={() => handleNextButton()}>Next Question</button>
 						</div>
 					) : (<></>)}
-					{showCorrectAnswer ? (<div style={{marginTop: '10vh', textAlign: 'center'}} className='animation'>
+					{showCorrectAnswer ? (<div style={{marginTop: '11vh', textAlign: 'center'}} className='animation'>
 						
 						<h1 >Correct!</h1>
 						<button onClick={() => handleNextButton()}>Next Question</button>

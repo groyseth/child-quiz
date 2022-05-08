@@ -15,12 +15,11 @@
 .answer-section{
     display: grid;
     grid-template-areas: 'left center right';
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 83px;
-    grid-gap: 67px;
-    width: 100vw;
-    /* background-color: rgb(244, 240, 244); */
-    margin-top: 26vh;
+    grid-template-columns: repeat(4, 4fr);
+    width: 79vw;
+    position: relative;
+    margin: auto;
+    top: 8vh;
 }
 .endText{
     text-align: center;

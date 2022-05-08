@@ -47,3 +47,13 @@
     position: relative;
     top: -27px;
   }
+  .quizMenu{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none; 
+    float: right;
+    margin-inline-end: auto;
+    position: relative;
+    top: -27px;
+  }

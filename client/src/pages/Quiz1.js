@@ -4,6 +4,7 @@ import "./quiz1.css"
 import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
 import ReactCSSTransitionGroup from 'react-transition-group';
+import QuizNav from '../components/QuizNav';
 
  
 
@@ -100,7 +101,7 @@ export default function Quiz1() {
 	}
 	return (
 		<div className='quizBackGround'>
-			
+			<QuizNav />
 
 				<>
 					{showScore ? (
@@ -126,16 +127,15 @@ export default function Quiz1() {
 								))}
 								
 							</div>
-							<button onClick={()=>window.location.replace('/quizDashboard')} style={{marginTop: '10vh'}}>Quit</button>
 						</>
 					)}
 					{showAnswer ? (
-						<div style={{marginTop: '10vh', textAlign: 'center'}}>
+						<div style={{marginTop: '11vh', textAlign: 'center'}} className='animation'>
 							<div>Wong answer, Keep it up!</div>
 							<button onClick={() => handleNextButton()}>Next Question</button>
 						</div>
 					) : (<></>)}
-					{showCorrectAnswer ? (<div style={{marginTop: '6vh', textAlign: 'center'}}>
+					{showCorrectAnswer ? (<div style={{marginTop: '11vh', textAlign: 'center'}} className='animation'>
 						<h1>Correct!</h1>
 						<button onClick={() => handleNextButton() }>Next Question</button>
 					</div>) : (<></>)}
