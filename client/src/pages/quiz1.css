@@ -34,6 +34,8 @@
     /* animation-fill-mode: forwards; */
     font-family: cursive;
     text-shadow: 1px 1px blue;
+    display: grid;
+    place-items: center;
 }
 @keyframes slidein {
     from {
@@ -46,14 +48,44 @@
       width: 100%;
     }
   }
+.animation button{
+    border: 2px black solid;
+    border-radius: 21px 21px;
+    height: 5vh;
+    width: 16vw;
+}
+
 .score-section{
     text-align: center;
     margin: auto;
     position: relative;
     top: 26%;
     display: grid;
-    /* grid-template-columns: repeat(1, 4fr); */
-    width: 19vw;
+    width: 30vw;
     font-family: cursive;
     font-size: 23px;
+}
+.score-section h1{
+    background-color: aqua;
+    border: 3px black solid;
+}
+.score-section button{
+    border: 2px black solid;
+    border-radius: 21px 21px;
+}
+.correctAnswer{
+    font-size: 37px;
+    background-color: rgb(80, 253, 12);
+    width: 40vw;
+    border: 3px black solid;
+    border-radius: 2px 29px;
+    margin-bottom: 11px;
+}
+.wrongAnswer{
+    font-size: 37px;
+    background-color: darkgoldenrod;
+    width: 40vw;
+    border: 3px black solid;
+    border-radius: 29px 2px;
+    margin-bottom: 11px;
 }

@@ -12,7 +12,7 @@ export default function Quiz1() {
 
 	const questions = [
 		{
-			questionText: 'Which one is a triangle', 
+			questionText: 'Which one is a triangle',
 			answerOptions: [
 				{ answerText: <img src={images.tryangle} className='image' alt='test' />, isCorrect: true, id: 1 },
 				{ answerText: <img src={images.square} className='image' alt='square' />, isCorrect: false, id: 2 },
@@ -21,7 +21,7 @@ export default function Quiz1() {
 			],
 		},
 		{
-			questionText: 'Which one is a circle?', 
+			questionText: 'Which one is a circle?',
 			answerOptions: [
 				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: true, id: 11 },
 				{ answerText: <img src={images.square} alt='square' className='image' />, isCorrect: false, id: 22 },
@@ -30,7 +30,7 @@ export default function Quiz1() {
 			],
 		},
 		{
-			questionText: 'Which one is a square?', 
+			questionText: 'Which one is a square?',
 			answerOptions: [
 				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image' />, isCorrect: false, id: 111 },
 				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: false, id: 222 },
@@ -39,11 +39,11 @@ export default function Quiz1() {
 			],
 		},
 		{
-			questionText: 
-			<div>
-			<img src={images.three} alt="three of them" className='tri' />
-			<h1>Can you count the number of triangles?</h1>
-			</div>,
+			questionText:
+				<div>
+					<img src={images.three} alt="three of them" className='tri' />
+					<h1>Can you count the number of triangles?</h1>
+				</div>,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false, id: 1111 },
 				{ answerText: '2', isCorrect: false, id: 2222 },
@@ -65,16 +65,16 @@ export default function Quiz1() {
 			setScore(score + 1);
 			setCorrectAnswer(true)
 
-			let Keyc = new Audio (sounds.correct);
+			let Keyc = new Audio(sounds.correct);
 			Keyc.addEventListener("canplaythrough", event => {
-			  Keyc.play();
+				Keyc.play();
 			});
 		} else {
 			setShowAnswer(true);
 			let Key = new Audio(sounds.wrong1);
-        Key.addEventListener("canplaythrough", event => {
-          Key.play();
-        });
+			Key.addEventListener("canplaythrough", event => {
+				Key.play();
+			});
 		}
 	};
 	const handleNextButton = () => {
@@ -84,7 +84,7 @@ export default function Quiz1() {
 			setShowAnswer(false);
 			setCorrectAnswer(false);
 			setCurrentQuestion(nextQuestion);
-			
+
 		} else {
 			setShowAnswer(false);
 			setCorrectAnswer(false);
@@ -108,46 +108,121 @@ export default function Quiz1() {
 			console.error(JSON.stringify(err));
 		}
 	}
+	// const handleMusic = () => {
+	// const musicArr =["g","h","j","k"] 
+	// for (let i = 0; i < musicArr.length; i++) {
+	// 	const element = musicArr[i];
+	// 	console.log(element);
+	// }
+
+	// }
+	function handleMusic() {
+		var randomArr = ["g", "h", "j", "k"];
+		console.log(randomArr);
+
+		var i = 0
+		var player = setInterval(() => {
+			var test = randomArr[i]
+			// console.log(test);
+			i++
+			if (i === randomArr.length) {
+				clearInterval(player)
+			}
+			switch (test) {
+				case "g":
+					console.log("keypressedg");
+					gLiteralKey();
+					break;
+				case "h":
+					console.log("keypressedh");
+					hLiteralKey();
+					break;
+				case "j":
+					console.log("keypressedj");
+					jLiteralKey();
+					break;
+				case "k":
+					console.log("keypressedk");
+					kLiteralKey();
+					break;
+
+
+			}
+		}, 180);
+
+		console.log("playback");
+		const gLiteralKey = () => {
+			let Key = new Audio(sounds.gkey);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+		const hLiteralKey = () => {
+			let Key = new Audio(sounds.akey);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+		const jLiteralKey = () => {
+			let Key = new Audio(sounds.bkey);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+		const kLiteralKey = () => {
+			let Key = new Audio(sounds.highc);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+	}
+
 	return (
 		<div className='quizBackGround'>
 			<QuizNav />
 
-				<>
-					{showScore ? (
-						<div className='score-section'>
-							You scored {score} out of {questions.length}!
-							<button onClick={() => handleSubmit(score)}>Save Score</button>
+			<>
+				{showScore ? (
+					<div className='score-section'>
+						<h1>You scored {score} out of {questions.length}!</h1>
+						<button onClick={() => handleSubmit(score)}>Save Score</button>
+						{handleMusic()}
+
+					</div>
+				) : (
+					<>
+						<div className='endText'>
+							<div className='question-count'>
+								<span>Question {currentQuestion + 1}</span>/{questions.length}
+							</div>
+							<div className='question-text'>{questions[currentQuestion].questionText}</div>
 						</div>
-					) : (
-						<>
-							<div className='endText'>
-								<div className='question-count'>
-									<span>Question {currentQuestion + 1}</span>/{questions.length}
+						<div className='answer-section'>
+							{questions[currentQuestion].answerOptions.map((answerOption) => (
+								<div key={answerOption.id} className="questions">
+									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 								</div>
-								<div className='question-text'>{questions[currentQuestion].questionText}</div>
-							</div>
-							<div className='answer-section'>
-								{questions[currentQuestion].answerOptions.map((answerOption) => (
-									<div key={answerOption.id} className="questions">
-										<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-									</div>
-								))}
-								
-							</div>
-						</>
-					)}
-					{showAnswer ? (
-						<div style={{marginTop: '11vh', textAlign: 'center'}} className='animation'>
-							<div>Wong answer, Keep it up!</div>
-							<button onClick={() => handleNextButton()}>Next Question</button>
+							))}
+
 						</div>
-					) : (<></>)}
-					{showCorrectAnswer ? (<div style={{marginTop: '11vh', textAlign: 'center'}} className='animation'>
-						<h1>Correct!</h1>
-						<button onClick={() => handleNextButton() }>Next Question</button>
-					</div>) : (<></>)}
-				</>
-			
+					</>
+				)}
+				{showAnswer ? (
+					<div style={{ marginTop: '11vh', textAlign: 'center' }} className='animation'>
+						<div className='wrongAnswer'>Wong answer, Keep it up!</div>
+						<button onClick={() => handleNextButton()}>Next Question</button>
+					</div>
+				) : (<></>)}
+				{showCorrectAnswer ? (<div style={{ marginTop: '11vh', textAlign: 'center' }} className='animation'>
+					<div className='correctAnswer'>Correct!</div>
+					<button onClick={() => handleNextButton()}>Next Question</button>
+				</div>) : (<></>)}
+			</>
+
 		</div>
 	);
 }

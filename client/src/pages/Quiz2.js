@@ -33,7 +33,7 @@ export default function Quiz2() {
 			questionText: <div>
 				<img src={images.fingers} alt='fingers'></img>
 				<h1>Can you count the fingers?</h1>
-				</div>,
+			</div>,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false, id: 111 },
 				{ answerText: '2', isCorrect: false, id: 222 },
@@ -45,7 +45,7 @@ export default function Quiz2() {
 			questionText: <div>
 				<img src={images.cats} alt='cats'></img>
 				<h1>How many Cats are there?</h1>
-				</div>,
+			</div>,
 			answerOptions: [
 				{ answerText: '1', isCorrect: false, id: 1111 },
 				{ answerText: '2', isCorrect: false, id: 2222 },
@@ -66,16 +66,16 @@ export default function Quiz2() {
 		if (isCorrect) {
 			setScore(score + 1);
 			setCorrectAnswer(true)
-			let Keyc = new Audio (sounds.correct);
+			let Keyc = new Audio(sounds.correct);
 			Keyc.addEventListener("canplaythrough", event => {
-			  Keyc.play();
+				Keyc.play();
 			});
 		} else {
 			setShowAnswer(true);
 			let Key = new Audio(sounds.wrong1);
-        Key.addEventListener("canplaythrough", event => {
-          Key.play();
-        });
+			Key.addEventListener("canplaythrough", event => {
+				Key.play();
+			});
 		}
 	};
 	const handleNextButton = () => {
@@ -108,6 +108,71 @@ export default function Quiz2() {
 			console.error(JSON.stringify(err));
 		}
 	}
+	function handleMusic() {
+		var randomArr = ["g", "h", "j", "k"];
+		console.log(randomArr);
+
+		var i = 0
+		var player = setInterval(() => {
+			var test = randomArr[i]
+			// console.log(test);
+			i++
+			if (i === randomArr.length) {
+				clearInterval(player)
+			}
+			switch (test) {
+				case "g":
+					console.log("keypressedg");
+					gLiteralKey();
+					break;
+				case "h":
+					console.log("keypressedh");
+					hLiteralKey();
+					break;
+				case "j":
+					console.log("keypressedj");
+					jLiteralKey();
+					break;
+				case "k":
+					console.log("keypressedk");
+					kLiteralKey();
+					break;
+
+
+			}
+		}, 180);
+
+		console.log("playback");
+		const gLiteralKey = () => {
+			let Key = new Audio(sounds.gkey);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+		const hLiteralKey = () => {
+			let Key = new Audio(sounds.akey);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+		const jLiteralKey = () => {
+			let Key = new Audio(sounds.bkey);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+		const kLiteralKey = () => {
+			let Key = new Audio(sounds.highc);
+			Key.addEventListener("canplaythrough", event => {
+				/* the audio is now playable; play it if permissions allow */
+				Key.play();
+			});
+		}
+	}
+
 	return (
 		<div className='quizBackGround'>
 			<QuizNav />
@@ -115,8 +180,9 @@ export default function Quiz2() {
 			<>
 				{showScore ? (
 					<div className='score-section'>
-						You scored {score} out of {questions.length}
+						<h1>You scored {score} out of {questions.length}!</h1>
 						<button onClick={() => handleSubmit(score)}>Save Score</button>
+						{handleMusic()}
 					</div>
 				) : (
 					<>
@@ -134,17 +200,17 @@ export default function Quiz2() {
 							))}
 
 						</div>
-					
+
 					</>
 				)}
 				{showAnswer ? (
 					<div style={{ marginTop: '11vh', textAlign: 'center' }} className='animation'>
-						<div>Wong answer, Keep it up!</div>
+						<div className='wrongAnswer'>Wong answer, Keep it up!</div>
 						<button onClick={() => handleNextButton()}>Next Question</button>
 					</div>
 				) : (<></>)}
 				{showCorrectAnswer ? (<div style={{ marginTop: '11vh', textAlign: 'center' }} className='animation'>
-					<h1>Correct!</h1>
+					<div className='correctAnswer'>Correct!</div>
 					<button onClick={() => handleNextButton()}>Next Question</button>
 				</div>) : (<></>)}
 			</>
