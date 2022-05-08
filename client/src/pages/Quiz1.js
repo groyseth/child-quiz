@@ -115,7 +115,7 @@ export default function Quiz1() {
 				<>
 					{showScore ? (
 						<div className='score-section'>
-							You scored {score} out of {questions.length}
+							You scored {score} out of {questions.length}!
 							<button onClick={() => handleSubmit(score)}>Save Score</button>
 						</div>
 					) : (

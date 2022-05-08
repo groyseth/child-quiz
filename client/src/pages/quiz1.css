@@ -46,3 +46,14 @@
       width: 100%;
     }
   }
+.score-section{
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: 26%;
+    display: grid;
+    /* grid-template-columns: repeat(1, 4fr); */
+    width: 19vw;
+    font-family: cursive;
+    font-size: 23px;
+}

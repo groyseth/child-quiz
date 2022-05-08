@@ -9,7 +9,7 @@ export default function LandingPage() {
 
   return (
     <div className='landingStyle'>
-      <h1>A Children's Learning Site!</h1>
+      <h1 className='landingTitle'>A Children's Learning Site!</h1>
       <button onClick={() => window.location.replace('/signUp')} className="btn btn-block btn-primary mx-3">
         Sign Up
       </button>
