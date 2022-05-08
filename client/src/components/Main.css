@@ -27,6 +27,7 @@
     color: rgb(2, 0, 0);
     text-decoration: none;
     padding: 0.5rem 1rem;
+    display: contents;
   }
   
   .nav-links:hover {
@@ -56,4 +57,7 @@
     margin-inline-end: auto;
     position: relative;
     top: -27px;
+  }
+  #nav-Time{
+    color: aliceblue;
   }

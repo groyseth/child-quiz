@@ -3,9 +3,9 @@ import images from '../assets/images/index';
 import "./quiz1.css"
 import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
-import ReactCSSTransitionGroup from 'react-transition-group';
+// import ReactCSSTransitionGroup from 'react-transition-group';
 import QuizNav from '../components/QuizNav';
-
+import moment from 'moment';
  
 
 export default function Quiz1() {
@@ -89,7 +89,7 @@ export default function Quiz1() {
 				variables: {
 					userId: localStorage.getItem('userId'),
 					scored: interger,
-					createdAt: "",
+					createdAt: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
 					quizTaken: 1,
 				},
 			});
@@ -107,8 +107,6 @@ export default function Quiz1() {
 					{showScore ? (
 						<div className='score-section'>
 							You scored {score} out of {questions.length}
-							<button onClick={() => window.location.replace('/quizDashboard')} >Home</button>
-							<button onClick={() => window.location.reload()}> Retry</button>
 							<button onClick={() => handleSubmit(score)}>Save Score</button>
 						</div>
 					) : (
