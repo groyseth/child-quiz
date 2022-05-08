@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_SCORE } from '../utils/mutations';
 import QuizNav from '../components/QuizNav';
 import moment from 'moment';
-
+import sounds from '../assets/audio';
 export default function Quiz2() {
 
 
@@ -66,8 +66,16 @@ export default function Quiz2() {
 		if (isCorrect) {
 			setScore(score + 1);
 			setCorrectAnswer(true)
+			let Keyc = new Audio (sounds.correct);
+			Keyc.addEventListener("canplaythrough", event => {
+			  Keyc.play();
+			});
 		} else {
 			setShowAnswer(true);
+			let Key = new Audio(sounds.wrong1);
+        Key.addEventListener("canplaythrough", event => {
+          Key.play();
+        });
 		}
 	};
 	const handleNextButton = () => {

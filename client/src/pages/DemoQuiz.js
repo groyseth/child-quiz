@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import images from '../assets/images/index';
 import QuizNav from '../components/QuizNav';
 import "./quiz1.css"
+import sounds from '../assets/audio';
 export default function DemoQuiz() {
 
 	const questions = [
@@ -56,8 +57,16 @@ export default function DemoQuiz() {
 		if (isCorrect) {
 			setScore(score + 1);
 			setCorrectAnswer(true)
+			let Keyc = new Audio (sounds.correct);
+			Keyc.addEventListener("canplaythrough", event => {
+			  Keyc.play();
+			});
 		} else {
 			setShowAnswer(true);
+			let Key = new Audio(sounds.wrong1);
+        Key.addEventListener("canplaythrough", event => {
+          Key.play();
+        });
 		}
 	};
 	const handleNextButton = () => {
