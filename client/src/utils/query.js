@@ -16,3 +16,20 @@ query Query($userId: ID!) {
   }
 }
 `;
+
+export const USER = gql`
+query Users {
+  users {
+    userName
+    password
+    firstName
+    lastName
+    _id
+    scores {
+      scored
+      createdAt
+      quizTaken
+      _id
+    }
+  }
+}`;
