@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProfileNav from '../components/ProfileNav'
 import { useQuery, useMutation } from '@apollo/client'
 import { SCORES } from '../utils/query'
 import { DELETESCORE, DELETEUSER } from '../utils/mutations';
-
-
+import { Modal, Button } from 'react-bootstrap';
+import auth from '../utils/auth';
 export default function Profile() {
     const [removeScore] = useMutation(DELETESCORE);
     const [removeUser] = useMutation(DELETEUSER)
@@ -21,21 +21,25 @@ export default function Profile() {
             console.error(JSON.stringify(err));
         }
     }
+    const [show, setShow] = useState(false);
 
-const handleDelete = async () => {
-    var deleteUser = window.confirm(`Do you want to delete ${singleUser.firstName} ${singleUser.lastName}'s account?`);
-    if(deleteUser){
-        const { data } = await removeUser({
-            variables: {
-                userId: localStorage.getItem('userId'),
-            },
-        });
-        window.location.replace('/');
-        console.log(data);
-    }else{
-        alert("That was a close one!")
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleDelete = async () => {
+        try {
+            const { data } = await removeUser({
+                variables: {
+                    userId: localStorage.getItem('userId'),
+                },
+            });
+            auth.logout();
+            window.location.replace('/');
+            console.log(data);
+        } catch (err) {
+            console.error(JSON.stringify(err));
+        }
     }
-}
 
 
 
@@ -64,8 +68,33 @@ const handleDelete = async () => {
 
                 <h1>Youve taken {quizResult} quizes</h1>
                 <button onClick={() => handleReset()} className='btn btn-danger'>Reset Scores</button>
-                <button onClick={() => handleDelete()} className='btn btn-danger'>Delete User</button>
+
+                <Button variant="btn btn-danger" onClick={handleShow}>
+                    Delete User
+                </Button>
             </div>
+
+            <>
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete User?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Would you like to delete {singleUser.firstName} {singleUser.lastName}'s account?
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="danger" onClick={() => handleDelete()}>Delete</Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
 
         </div>
     )
