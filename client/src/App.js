@@ -48,12 +48,12 @@ function App() {
     <ApolloProvider client={client}>
       <Switch>
         <Router>
-          {test?(<>
-          <Route path='/quizDashboard' component={QuizHomePage} />
-          <Route path='/quiz1' component={Quiz1} />
-          <Route path='/profile' component={Profile} />
-          <Route path='/quiz2' component={Quiz2} />
-          </>):(<></>)}
+          {test ? (<>
+            <Route path='/quizDashboard' component={QuizHomePage} />
+            <Route path='/quiz1' component={Quiz1} />
+            <Route path='/profile' component={Profile} />
+            <Route path='/quiz2' component={Quiz2} />
+          </>) : (<></>)}
           <Route exact path='/' component={MainComponent} />
           <Route path='/signUp' component={SignUp} />
           <Route path='/logIn' component={Login} />

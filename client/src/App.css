@@ -44,6 +44,8 @@
     border: 2px black solid;
     padding-bottom: 10px;
     margin-bottom: 50px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    border-radius: 23px 18px;
 }
 .butStyle{
     margin-top: 10px;

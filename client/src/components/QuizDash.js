@@ -54,7 +54,7 @@ const test = () => {
           </div>
         </div>
       </div>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', marginTop: '86px' }}>
         {showScore ? (<>
           <h1>{singleUser.userName} has a score of {test()}!</h1>
           <p>Great Job {singleUser.userName} and keep up the good work!!</p>

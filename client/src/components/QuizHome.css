@@ -1,5 +1,5 @@
 .quizSelect{
-    border: 2px black solid;
+    /* border: 2px black solid; */
     width: 27%;
     height: 19vh;
     display: grid;
@@ -8,12 +8,13 @@
     grid-template-rows: 79px;
     grid-gap: 4px;
     width: 31vw;
-    background-color: rgb(244, 240, 244);
+    /* background-color: rgb(244, 240, 244); */
     text-align: -webkit-center;
 }
-/* .quizSelect button{
-
-} */
+.quizSelect button{
+    background-color: #0098ff;
+    font-family: cursive;
+}
 .dash{
     text-align: -webkit-center;
 }
