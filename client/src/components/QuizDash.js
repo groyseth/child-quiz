@@ -18,7 +18,7 @@ export default function QuizHomePage() {
   const singScore = data?.singleUser.scores || [];
 
 
-const test = () => {
+const test = (result) => {
   var result = 0;
   for (let i = 0; i < singScore.length; i++) {
     var element = singScore[i].scored;
@@ -26,18 +26,26 @@ const test = () => {
     result += element;
     // console.log(result);
   }
-  // console.log(element);
-  // if(element > 0 ){
-  //   console.log("else");
-  //   setShowScore(true)
-  // }else{
-  //   setShowScore(false)
-  // }
-  // console.log(result);
-  return result
+  var num = result;
+  console.log(num);
+  return num
 }
+setTimeout(() => {
+  if(test() === 0){
+    console.log("is 0");
+    setShowScore(false)
+    clearTimeout();
+  }else{
+    console.log("is more");
+    setShowScore(true)
+    clearTimeout();
+  }
+}, 500);
   
-
+// if(test() === 0){
+//   console.log("none");
+//   setShowScore(false)
+// }
   return (
     <div className='backGround' >
       <NavBar />

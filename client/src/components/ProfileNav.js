@@ -10,9 +10,9 @@ export default function ProfileNav() {
       
         const handleClick = () => setClick(!click)
         const closeMobileMenu = () => setClick(false);
-        const handleTime = () => {
-            setInterval(() => {document.getElementById('nav-Time').innerHTML = `${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}`},1000)
-        }
+        // const handleTime = () => {
+        //     setInterval(() => {document.getElementById('nav-Time').innerHTML = `${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}`},1000)
+        // }
   return (
     <nav className='navbar'>
              
@@ -33,7 +33,7 @@ export default function ProfileNav() {
         </li>
         <li className='nav-item'>
             <p id='nav-Time' className='nav-links'>
-                {handleTime()}
+                {/* {handleTime()} */}
             </p>
         </li>
     </ul>
