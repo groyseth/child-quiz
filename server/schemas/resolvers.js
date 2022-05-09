@@ -67,9 +67,30 @@ const resolvers = {
             console.log(err); 
             return; 
           }
-    
         },
+        updateUser: async (parent, args) =>{
+          try{
+            const updateUser = await User.findByIdAndUpdate({_id: args.userId},{$set: args})
+            return updateUser;
+          }catch(err){
+            console.log(err);
+            return
+          }
+        },
+        deleteAcount: async (parent, {userId}) =>{
+          try{
+            const currentUser = await User.findOne({_id:userId})
+            console.log(currentUser);
+            const deletedScore = await Score.deleteMany({_id:currentUser.scores})
+            const deleteUser = await User.findByIdAndDelete({_id:userId})
+            return deleteUser;
+            }catch(err){
+              console.log(err); 
+              return; 
+            }
+          },
+        }
       }
-}
+
 
 module.exports = resolvers;

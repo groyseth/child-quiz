@@ -52,3 +52,13 @@ mutation Mutation($userId: ID!) {
   }
 }
 `;
+
+export const DELETEUSER = gql`
+mutation DeleteAcount($userId: ID!) {
+  deleteAcount(userId: $userId) {
+    userName
+    password
+    firstName
+    lastName
+  }
+}`;

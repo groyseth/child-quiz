@@ -34,6 +34,8 @@ type Mutation{
     login(userName: String!, password: String!): Auth
     addScore(userId: ID! scored: Int! createdAt: String! quizTaken: Int! ): Score
     deleteScore(userId: ID!): User
+    updateUser(userId: ID!, userName: String!, password: String!, firstName: String!, lastName: String!): User
+    deleteAcount(userId: ID!): User
 }
 `;
 

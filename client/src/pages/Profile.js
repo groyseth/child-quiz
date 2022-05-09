@@ -2,12 +2,12 @@ import React from 'react'
 import ProfileNav from '../components/ProfileNav'
 import { useQuery, useMutation } from '@apollo/client'
 import { SCORES } from '../utils/query'
-import { DELETESCORE } from '../utils/mutations';
+import { DELETESCORE, DELETEUSER } from '../utils/mutations';
 
 
 export default function Profile() {
     const [removeScore] = useMutation(DELETESCORE);
-
+    const [removeUser] = useMutation(DELETEUSER)
     const handleReset = async () => {
         try {
             const { data } = await removeScore({
@@ -22,7 +22,20 @@ export default function Profile() {
         }
     }
 
-
+const handleDelete = async () => {
+    var deleteUser = window.confirm(`Do you want to delete ${singleUser.firstName} ${singleUser.lastName}'s account?`);
+    if(deleteUser){
+        const { data } = await removeUser({
+            variables: {
+                userId: localStorage.getItem('userId'),
+            },
+        });
+        window.location.replace('/');
+        console.log(data);
+    }else{
+        alert("That was a close one!")
+    }
+}
 
 
 
@@ -50,7 +63,8 @@ export default function Profile() {
                 <p>This is your profile, you can update and see quiz information</p>
 
                 <h1>Youve taken {quizResult} quizes</h1>
-                <button onClick={() => handleReset()}>Reset Scores</button>
+                <button onClick={() => handleReset()} className='btn btn-danger'>Reset Scores</button>
+                <button onClick={() => handleDelete()} className='btn btn-danger'>Delete User</button>
             </div>
 
         </div>
