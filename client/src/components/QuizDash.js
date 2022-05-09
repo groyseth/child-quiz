@@ -4,15 +4,11 @@ import './QuizHome.css'
 import './Main.css'
 import { useQuery } from '@apollo/client'
 import { SCORES } from '../utils/query'
-// import { USER } from '../utils/query'
+
 
 export default function QuizHomePage() {
 
-  const [showScore, setShowScore] = useState(true)
-//   const {error1, data1} = useQuery(USER, {
-//     variables:{userId: localStorage.getItem("userId")}
-//   })
-// console.log(data1);
+  const [showScore, setShowScore] = useState(true);
 
   const { error, data } = useQuery(SCORES, {
     variables: { userId: localStorage.getItem('userId') }

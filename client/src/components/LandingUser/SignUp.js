@@ -87,7 +87,7 @@ export default function SignUp() {
                 onChange={handleChange}
               />
               <button
-                className="btn btn-block btn-primary"
+                className="btn btn-block btn-primary butStyle"
                 style={{ cursor: 'pointer' }}
                 type="submit"
               >Submit
@@ -100,7 +100,7 @@ export default function SignUp() {
               {error.message}
             </div>
           )}
-          <button onClick={()=> window.location.replace('/')} className='my-3 bg-danger text-white'>Back</button>
+          <button onClick={()=> window.location.replace('/')} className='my-3 bg-danger text-white'>Go Back</button>
         </div>
       </div>
     </div>

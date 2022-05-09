@@ -13,6 +13,7 @@ export default function LandingPage() {
       <button onClick={() => window.location.replace('/signUp')} className="btn btn-block btn-primary mx-3">
         Sign Up
       </button>
+      <p>Or</p>
       <button onClick={() => window.location.replace('/login')} className="btn btn-block btn-primary mx-3">
        Login
       </button>

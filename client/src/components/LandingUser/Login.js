@@ -72,7 +72,7 @@ export default function Login() {
                 onChange={handleChange}
               />
               <button
-                className="btn btn-block btn-primary"
+                className="btn btn-block btn-primary butStyle"
                 style={{ cursor: 'pointer' }}
                 type="submit"
               >
@@ -87,7 +87,7 @@ export default function Login() {
               
             </div>
           )}
-          <button onClick={()=> window.location.replace('/')} className='my-3  bg-danger text-white'>Back</button>
+          <button onClick={()=> window.location.replace('/')} className='my-3  bg-danger text-white'>Go Back</button>
         </div>
       </div>
     </div>
