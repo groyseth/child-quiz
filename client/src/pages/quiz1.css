@@ -12,6 +12,9 @@
 .questions button{
     width: 14vw;
 }
+.questions button:disabled{
+    background-color: white;
+}
 .answer-section{
     display: grid;
     grid-template-areas: 'left center right';
@@ -21,6 +24,7 @@
     margin: auto;
     top: 8vh;
 }
+
 .endText{
     text-align: center;
     background: darkgoldenrod;

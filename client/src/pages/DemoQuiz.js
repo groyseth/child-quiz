@@ -50,34 +50,43 @@ export default function DemoQuiz() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
-	const [showAnswer, setShowAnswer] = useState(false);
+	const [showWrongAnswer, setshowWrongAnswer] = useState(false);
 	const [showCorrectAnswer, setCorrectAnswer] = useState(false);
+	const [disable, setDisable] = useState(false);
+
 	const handleAnswerOptionClick = async (isCorrect) => {
 
 		if (isCorrect) {
 			setScore(score + 1);
 			setCorrectAnswer(true)
+			setshowWrongAnswer(false)
 			let Keyc = new Audio(sounds.correct);
 			Keyc.addEventListener("canplaythrough", event => {
 				Keyc.play();
 			});
-		} else {
-			setShowAnswer(true);
+			setDisable(true);
+		}
+		if(!isCorrect){
+			console.log("not correct");
+			setCorrectAnswer(false)
+			setshowWrongAnswer(true)
 			let Key = new Audio(sounds.wrong1);
 			Key.addEventListener("canplaythrough", event => {
 				Key.play();
 			});
+			setDisable(true);
 		}
 	};
 	const handleNextButton = () => {
 		console.log("click");
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
-			setShowAnswer(false);
+			setshowWrongAnswer(false);
 			setCorrectAnswer(false);
 			setCurrentQuestion(nextQuestion);
+			setDisable(false);
 		} else {
-			setShowAnswer(false);
+			setshowWrongAnswer(false);
 			setCorrectAnswer(false);
 			setShowScore(true);
 		}
@@ -170,16 +179,25 @@ export default function DemoQuiz() {
 							<div className='question-text'>{questions[currentQuestion].questionText}</div>
 						</div>
 						<div className='answer-section'>
+							{disable?(<>
 							{questions[currentQuestion].answerOptions.map((answerOption) => (
-								<div key={answerOption.id} className='questions'>
-									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+								<div key={answerOption.id} className='questions '>
+									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled>{answerOption.answerText}</button>
 								</div>
 							))}
+							</>):(
+							<>
+							{questions[currentQuestion].answerOptions.map((answerOption) => (
+								<div key={answerOption.id} className='questions '>
+									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} >{answerOption.answerText}</button>
+								</div>
+							))}
+							</>)}
 						</div>
 
 					</>
 				)}
-				{showAnswer ? (
+				{showWrongAnswer ? (
 					<div style={{ marginTop: '11vh', textAlign: 'center' }} className='animation'>
 						<div className='wrongAnswer'>Almost, Keep it up!</div>
 						<button onClick={() => handleNextButton()}>Next Question</button>

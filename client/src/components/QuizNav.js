@@ -22,15 +22,15 @@ export default function QuizNav() {
     </div>
     <ul className={click ? 'quizMenu active' : 'quizMenu'}>
         
-        <li className='nav-item'>
+        <li className='nav-item' style={{cursor: "pointer"}}>
             <Link to="/quizDashboard" className='nav-links' onClick={closeMobileMenu}>
                 Home
             </Link>
         </li>
-        <li className='nav-item'>
-            <Link  className='nav-links' onClick={() => window.location.reload()}>
+        <li className='nav-item' style={{cursor: "pointer"}}>
+            <p className='nav-links' onClick={() => window.location.reload()}>
                 Retry
-            </Link>
+            </p>
         </li>
         <li className='nav-item' id='nav-Time'>
            <p className='nav-links'>
