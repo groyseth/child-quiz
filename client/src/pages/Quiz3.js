@@ -6,63 +6,54 @@ import { ADD_SCORE } from '../utils/mutations';
 import QuizNav from '../components/QuizNav';
 import moment from 'moment';
 import sounds from '../assets/audio';
-export default function Quiz2() {
+export default function Quiz3() {
 
 
 
 	const questions = [
 		{
-			questionText:<div><img src={images.plus1} alt='1plus1' /><h1>Can we count with our fingers?</h1></div> ,
+			questionText: <div><img src={images.puppy} alt="Puppy"/><h1>What is this animal?</h1></div>,
 			answerOptions: [
-				{ answerText: '2', isCorrect: true, id: 1 },
-				{ answerText: '1', isCorrect: false, id: 2 },
-				{ answerText: '5', isCorrect: false, id: 3 },
-				{ answerText: '10', isCorrect: false, id: 4 },
+				{ answerText: 'Puppy', isCorrect: true, id: 1 },
+				{ answerText: 'Kitty', isCorrect: false, id: 2 },
+				{ answerText: 'Bird', isCorrect: false, id: 3 },
+				{ answerText: 'Fish', isCorrect: false, id: 4 },
 			],
 		},
 		{
-			questionText: <div><img src={images.hand} alt='fingers'/><h1>Can you count up to 5?</h1></div>,
+			questionText:<div><img src={images.seals} alt="Seals"/><h1>It is not a puppy or a kitty, its a..?</h1></div> ,
 			answerOptions: [
-				{ answerText: '1, 2, 3, 4, 5', isCorrect: true, id: 11 },
-				{ answerText: '5, 4, 3, 2, 1', isCorrect: false, id: 22 },
-				{ answerText: '1, 2, 3', isCorrect: false, id: 33 },
-				{ answerText: '2', isCorrect: false, id: 44 },
+				{ answerText: 'Seal', isCorrect: true, id: 11 },
+				{ answerText: 'Elephant', isCorrect: false, id: 22 },
+				{ answerText: 'Fox', isCorrect: false, id: 33 },
+				{ answerText: 'Dog', isCorrect: false, id: 44 },
 			],
 		},
 		{
-			questionText: <div>
-				<img src={images.fingers} alt='fingers'></img>
-				<h1>Can you count the fingers?</h1>
-			</div>,
+			questionText:<div><img src={images.bark} alt='bark'/><h1>What do Doggies say?</h1></div> ,
 			answerOptions: [
-				{ answerText: '1', isCorrect: false, id: 111 },
-				{ answerText: '2', isCorrect: false, id: 222 },
-				{ answerText: '4', isCorrect: true, id: 333 },
-				{ answerText: '5', isCorrect: false, id: 444 },
+				{ answerText: 'Rarrrr', isCorrect: false, id: 111 },
+				{ answerText: 'Meow', isCorrect: false, id: 222 },
+				{ answerText: 'Bark', isCorrect: true, id: 333 },
+				{ answerText: 'Blub Blub', isCorrect: false, id: 444 },
 			],
 		},
 		{
-			questionText: <div>
-				<img src={images.cats} alt='cats'></img>
-				<h1>How many Kittens are there?</h1>
-			</div>,
+			questionText:<div><img src={images.water} alt="fish" /><h1>Where do fish live?</h1></div> ,
 			answerOptions: [
-				{ answerText: '1', isCorrect: false, id: 1111 },
-				{ answerText: '2', isCorrect: false, id: 2222 },
-				{ answerText: '3', isCorrect: true, id: 3333 },
-				{ answerText: '4', isCorrect: false, id: 4444 },
+				{ answerText: 'In Water', isCorrect: true, id: 1111 },
+				{ answerText: 'In the sky', isCorrect: false, id: 2222 },
+				{ answerText: 'Underground', isCorrect: false, id: 3333 },
+				{ answerText: 'In SPACE!', isCorrect: false, id: 4444 },
 			],
 		},
 		{
-			questionText: <div>
-				<img src={images.toes} alt='cats'></img>
-				<h1>How many toes do you have?</h1>
-			</div>,
+			questionText:<div><img src={images.dolpin} alt="dolpin" /><h1>What animal is this?</h1></div> ,
 			answerOptions: [
-				{ answerText: '4', isCorrect: false, id: 1111 },
-				{ answerText: '1000', isCorrect: false, id: 2222 },
-				{ answerText: '10', isCorrect: true, id: 3333 },
-				{ answerText: '7', isCorrect: false, id: 4444 },
+				{ answerText: 'Tiger', isCorrect: false, id: 1111 },
+				{ answerText: 'Doplin', isCorrect: true, id: 2222 },
+				{ answerText: 'Shark', isCorrect: false, id: 3333 },
+				{ answerText: 'Turtle', isCorrect: false, id: 4444 },
 			],
 		},
 	];
@@ -74,6 +65,9 @@ export default function Quiz2() {
 	const [showWrongAnswer, setshowWrongAnswer] = useState(false);
 	const [showCorrectAnswer, setCorrectAnswer] = useState(false);
 	const [disable, setDisable] = useState(false)
+	// const [audio, setAudio] = useState(false)
+	
+		
 	const handleAnswerOptionClick = async (isCorrect) => {
 
 		if (isCorrect) {
@@ -85,6 +79,7 @@ export default function Quiz2() {
 				Keyc.play();
 			});
 			setDisable(true);
+			
 		}
 		if(!isCorrect){
 			console.log("not correct");
@@ -96,7 +91,9 @@ export default function Quiz2() {
 			});
 			setDisable(true);
 		}
+		
 	};
+
 	const handleNextButton = () => {
 		console.log("click");
 		const nextQuestion = currentQuestion + 1;
@@ -129,7 +126,7 @@ export default function Quiz2() {
 		}
 	}
 	function handleMusic() {
-		var randomArr = ["g","h","","j","k"];
+		var randomArr = ["g", "h","", "j", "k"];
 		console.log(randomArr);
 
 		var i = 0

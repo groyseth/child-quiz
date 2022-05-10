@@ -7,6 +7,7 @@ import Quiz1 from './pages/Quiz1';
 import DemoQuiz from './pages/DemoQuiz';
 import Profile from './pages/Profile'
 import Quiz2 from './pages/Quiz2';
+import Quiz3 from './pages/Quiz3';
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
@@ -53,6 +54,7 @@ function App() {
             <Route path='/quiz1' component={Quiz1} />
             <Route path='/profile' component={Profile} />
             <Route path='/quiz2' component={Quiz2} />
+            <Route path='/quiz3' component={Quiz3} />
           </>) : (<></>)}
           <Route exact path='/' component={MainComponent} />
           <Route path='/signUp' component={SignUp} />

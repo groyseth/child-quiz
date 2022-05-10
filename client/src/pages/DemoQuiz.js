@@ -7,16 +7,16 @@ export default function DemoQuiz() {
 
 	const questions = [
 		{
-			questionText: 'What is 1 + 1?',
+			questionText:<div><img src={images.plus1} alt='1plus1' /><h1>Can we count with our fingers?</h1></div> ,
 			answerOptions: [
-				{ answerText: "1", isCorrect: false, id: 1 },
-				{ answerText: "2", isCorrect: true, id: 2 },
-				{ answerText: "3", isCorrect: false, id: 3 },
-				{ answerText: "4", isCorrect: false, id: 4 },
+				{ answerText: '2', isCorrect: true, id: 1 },
+				{ answerText: '1', isCorrect: false, id: 2 },
+				{ answerText: '5', isCorrect: false, id: 3 },
+				{ answerText: '10', isCorrect: false, id: 4 },
 			],
 		},
 		{
-			questionText: 'Which one is a circle?',
+			questionText: <div><img src={images.thinking} alt='thinking'/><h1>Which one is a circle?</h1></div> ,
 			answerOptions: [
 				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: true, id: 11 },
 				{ answerText: <img src={images.square} alt='square' className='image' />, isCorrect: false, id: 22 },
@@ -25,7 +25,7 @@ export default function DemoQuiz() {
 			],
 		},
 		{
-			questionText: 'Which one is a square?',
+			questionText: <div><img src={images.thinking} alt='thinking'/><h1>Which one is a square?</h1></div> ,
 			answerOptions: [
 				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image' />, isCorrect: false, id: 111 },
 				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: false, id: 222 },

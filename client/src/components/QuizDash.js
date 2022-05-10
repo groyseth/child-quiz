@@ -13,7 +13,6 @@ export default function QuizHomePage() {
   const { error, data } = useQuery(SCORES, {
     variables: { userId: localStorage.getItem('userId') }
   });
-  // console.log(error);
   const singleUser = data?.singleUser || [];
   const singScore = data?.singleUser.scores || [];
 
@@ -22,30 +21,26 @@ const test = (result) => {
   var result = 0;
   for (let i = 0; i < singScore.length; i++) {
     var element = singScore[i].scored;
-    // result = 0;
     result += element;
     // console.log(result);
   }
   var num = result;
-  console.log(num);
+  // console.log(num);
   return num
 }
 setTimeout(() => {
   if(test() === 0){
-    console.log("is 0");
+    // console.log("is 0");
     setShowScore(false)
     clearTimeout();
   }else{
-    console.log("is more");
+    // console.log("is more");
     setShowScore(true)
     clearTimeout();
   }
-}, 500);
+}, 100);
   
-// if(test() === 0){
-//   console.log("none");
-//   setShowScore(false)
-// }
+
   return (
     <div className='backGround' >
       <NavBar />
@@ -58,6 +53,9 @@ setTimeout(() => {
             </button>
             <button onClick={() => window.location.replace('/quiz2')}>
               Learn Your Numbers!
+            </button>
+            <button onClick={() => window.location.replace('/quiz3')}>
+              Learn Your Animals
             </button>
           </div>
         </div>

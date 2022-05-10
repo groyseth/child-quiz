@@ -12,7 +12,7 @@ export default function Quiz1() {
 
 	const questions = [
 		{
-			questionText: 'Which one is a triangle',
+			questionText:<div><img src={images.thinking} alt='thinking'/><h1>Which one is a triangle?</h1></div> ,
 			answerOptions: [
 				{ answerText: <img src={images.tryangle} className='image' alt='test' />, isCorrect: true, id: 1 },
 				{ answerText: <img src={images.square} className='image' alt='square' />, isCorrect: false, id: 2 },
@@ -21,7 +21,7 @@ export default function Quiz1() {
 			],
 		},
 		{
-			questionText: 'Which one is a circle?',
+			questionText: <div><img src={images.thinking} alt='thinking'/><h1>Which one is a circle?</h1></div> ,
 			answerOptions: [
 				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: true, id: 11 },
 				{ answerText: <img src={images.square} alt='square' className='image' />, isCorrect: false, id: 22 },
@@ -30,7 +30,7 @@ export default function Quiz1() {
 			],
 		},
 		{
-			questionText: 'Which one is a square?',
+			questionText: <div><img src={images.thinking} alt='thinking'/><h1>Which one is a square?</h1></div> ,
 			answerOptions: [
 				{ answerText: <img src={images.trapiziod} alt='trapiziod' className='image' />, isCorrect: false, id: 111 },
 				{ answerText: <img src={images.circle} alt='circle' className='image' />, isCorrect: false, id: 222 },
@@ -41,18 +41,31 @@ export default function Quiz1() {
 		{
 			questionText:
 				<div>
-					<img src={images.three} alt="three of them" className='tri' />
-					<h1>Can you count the number of triangles?</h1>
+					<img src={images.star} alt="star" className='tri' />
+					<h1>This shape is a...?</h1>
 				</div>,
 			answerOptions: [
-				{ answerText: '1', isCorrect: false, id: 1111 },
-				{ answerText: '2', isCorrect: false, id: 2222 },
-				{ answerText: '3', isCorrect: true, id: 3333 },
-				{ answerText: '4', isCorrect: false, id: 4444 },
+				{ answerText: 'Square', isCorrect: false, id: 1111 },
+				{ answerText: 'Triangle', isCorrect: false, id: 2222 },
+				{ answerText: 'Trapaziod', isCorrect: false, id: 3333 },
+				{ answerText: 'Star', isCorrect: true, id: 4444 },
+			],
+		},
+		{
+			questionText:
+				<div>
+					<img src={images.three} alt="three of them" className='tri' />
+					<h1>These shapes are not a square or a circle, they are ....?</h1>
+				</div>,
+			answerOptions: [
+				{ answerText: 'Squares', isCorrect: false, id: 1111 },
+				{ answerText: 'Circles', isCorrect: false, id: 2222 },
+				{ answerText: 'Triangles', isCorrect: true, id: 3333 },
+				{ answerText: 'Ovals', isCorrect: false, id: 4444 },
 			],
 		},
 	];
-	// console.log(questions);
+
 	const [addScore] = useMutation(ADD_SCORE);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
@@ -120,13 +133,12 @@ export default function Quiz1() {
 
 	
 	function handleMusic() {
-		var randomArr = ["g", "h", "j", "k"];
+		var randomArr = ["g", "h","", "j", "k"];
 		console.log(randomArr);
 
 		var i = 0
 		var player = setInterval(() => {
 			var test = randomArr[i]
-			// console.log(test);
 			i++
 			if (i === randomArr.length) {
 				clearInterval(player)
@@ -151,7 +163,7 @@ export default function Quiz1() {
 
 
 			}
-		}, 180);
+		}, 187);
 
 		console.log("playback");
 		const gLiteralKey = () => {
