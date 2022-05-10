@@ -50,3 +50,15 @@
 .butStyle{
     margin-top: 10px;
 }
+@media(max-width:360px){
+.landingTitle{
+    width: 87vw;
+}
+.landingStyle{
+    top: 30%;
+}
+#nav-Time{
+    display: none;
+}
+
+}

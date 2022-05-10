@@ -1,7 +1,7 @@
 .quizSelect{
     /* border: 2px black solid; */
     width: 27%;
-    height: 19vh;
+    height: 28vh;
     display: grid;
     /* grid-template-areas: 'left center right'; */
     grid-template-rows: repeat(2, 1fr);

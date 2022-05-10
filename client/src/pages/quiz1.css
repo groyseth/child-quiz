@@ -24,6 +24,11 @@
     margin: auto;
     top: 8vh;
 }
+/* @media(max-width:360px){
+   .questions button{
+       grid-template-rows:repeat(4, 4fr) ;
+   }
+} */
 
 .endText{
     text-align: center;

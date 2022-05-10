@@ -14,7 +14,7 @@ import plus1 from './1plus1.jpg'
 import hand from './hand.jpg'
 import toes from './toes.jpg'
 import star from './star.jpg'
-import thinking from './thinking.jpg'
+import thinking from './person.jpg'
 const images = {
 tryangle,
 square,
