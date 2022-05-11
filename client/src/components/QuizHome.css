@@ -18,3 +18,9 @@
 .dash{
     text-align: -webkit-center;
 }
+@media(max-width:391px){
+    .quizSelect{
+        width: 57vw;
+        height: 32vh;
+    }
+}

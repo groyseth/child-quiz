@@ -123,7 +123,7 @@ setTimeout(() => {
       <NavBar />
       <div className='dash'>
         <div style={{ marginTop: '8%' }}>
-          <h1>quiz selection</h1>
+          <h1 className='quizTitle'>quiz selection</h1>
           <div className='quizSelect' >
             <button onClick={() => window.location.replace('/quiz1')}>
               Learn Your Shapes!

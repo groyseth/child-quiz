@@ -10,9 +10,10 @@
     height: 33vh;
 }
 .questions button{
-    width: 30vw;
+    width: 33vw;
     border: 4px black solid;
-    margin-top: 4px;
+    margin-top: 30px;
+    /* height: 7vh; */
 }
 .questions button:disabled{
     background-color: white;
@@ -20,9 +21,10 @@
 .answer-section{
     display: grid;
     position: relative;
-    row-gap: 20px;
+    row-gap: 63px;
     margin: auto;
     place-items: center;
+    grid-template-columns: auto auto;
   
 }
 
@@ -120,3 +122,19 @@
       /* width: 100%; */
     }
   }
+@media(max-width:391px){
+    .animation button {
+        width: 37vw;
+    }
+    .correctAnswer{
+        width: 44vw;
+    }
+    .wrongAnswer{
+        position: relative;
+    right: 26px;
+    width: 56vw;
+    }
+    .score-section h1 {
+        width: 37vw;
+    }
+}

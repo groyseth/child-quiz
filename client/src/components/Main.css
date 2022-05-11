@@ -56,3 +56,15 @@
 #nav-Time {
   color: aliceblue;
 }
+.quizTitle{
+  font-size: 50px;
+    border: 2px black solid;
+    background-color: antiquewhite;
+    border-radius: 28px 31px;
+    width: 35vw;
+}
+@media(max-width:391px){
+  .quizTitle{
+    width: 83vw;
+  }
+}
