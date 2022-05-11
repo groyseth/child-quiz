@@ -181,7 +181,7 @@ export default function DemoQuiz() {
 						<div className='answer-section'>
 							{disable?(<>
 							{questions[currentQuestion].answerOptions.map((answerOption) => (
-								<div key={answerOption.id} className='questions '>
+								<div key={answerOption.id} className='questions slideAnimation'>
 									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled>{answerOption.answerText}</button>
 								</div>
 							))}
@@ -203,7 +203,7 @@ export default function DemoQuiz() {
 						<button onClick={() => handleNextButton()}>Next Question</button>
 					</div>
 				) : (<></>)}
-				{showCorrectAnswer ? (<div style={{ marginTop: '11vh', textAlign: 'center' }} className='animation'>
+				{showCorrectAnswer ? (<div style={{  marginTop: '11vh', textAlign: 'center' }} className='animation'>
 
 					<div className='correctAnswer'>Correct!</div>
 					<button onClick={() => handleNextButton()}>Next Question</button>

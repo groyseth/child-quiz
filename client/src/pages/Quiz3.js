@@ -212,7 +212,7 @@ export default function Quiz3() {
 						<div className='answer-section'>
 							{disable?(<>
 							{questions[currentQuestion].answerOptions.map((answerOption) => (
-								<div key={answerOption.id} className='questions '>
+								<div key={answerOption.id} className='questions slideAnimation'>
 									<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)} disabled>{answerOption.answerText}</button>
 								</div>
 							))}
