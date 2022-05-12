@@ -63,15 +63,17 @@ export default function Profile() {
         <div className='backGround' style={{ textAlign: 'center' }}>
             <ProfileNav />
             <div className='profileStyle'>
-                <h1>Hello {singleUser.firstName} {singleUser.lastName}</h1>
-                <p>This is your profile, you can update and see quiz information</p>
+                <h1>Hello {singleUser.firstName}</h1>
+                <p>This is your profile, you can reset your quiz's taken and remove profile</p>
 
                 <h1>Youve taken {quizResult} quizes</h1>
+                
                 <button onClick={() => handleReset()} className='btn btn-danger'>Reset Scores</button>
 
-                <Button variant="btn btn-danger" onClick={handleShow}>
+                <Button variant="btn btn-danger" className='deleteUser' onClick={handleShow}>
                     Delete User
                 </Button>
+                
             </div>
 
             <>
@@ -85,7 +87,7 @@ export default function Profile() {
                         <Modal.Title>Delete User?</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Would you like to delete {singleUser.firstName} {singleUser.lastName}'s account?
+                        Would you like to delete {singleUser.firstName}'s account?
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>

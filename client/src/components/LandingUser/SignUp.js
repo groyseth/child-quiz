@@ -8,9 +8,7 @@ export default function SignUp() {
   const [formState, setFormState] = useState({
     userName: '',
   password: '',
-  firstName: '',
-  lastName: ''
-  
+  firstName: ''
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
     
@@ -78,14 +76,7 @@ export default function SignUp() {
                   value={formState.firstName}
                   onChange={handleChange}
                 />
-              <input
-                className="form-control"
-                placeholder="Last Name"
-                name="lastName"
-                type="text"
-                value={formState.lastName}
-                onChange={handleChange}
-              />
+             
               <button
                 className="btn btn-block btn-primary butStyle"
                 style={{ cursor: 'pointer' }}

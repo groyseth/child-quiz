@@ -6,7 +6,6 @@ query Query($userId: ID!) {
     _id
     userName
     firstName
-    lastName
     scores {
       _id
       scored
@@ -23,7 +22,6 @@ query Users {
     userName
     password
     firstName
-    lastName
     _id
     scores {
       scored
