@@ -16,7 +16,7 @@ export default function Profile() {
                 },
             });
             window.location.reload();
-            console.log(data);
+            // console.log(data);
         } catch (err) {
             console.error(JSON.stringify(err));
         }
@@ -35,7 +35,7 @@ export default function Profile() {
             });
             auth.logout();
             window.location.replace('/');
-            console.log(data);
+            // console.log(data);
         } catch (err) {
             console.error(JSON.stringify(err));
         }
@@ -46,9 +46,9 @@ export default function Profile() {
     const { error, data } = useQuery(SCORES, {
         variables: { userId: localStorage.getItem('userId') }
     });
-    console.log(error);
+    // console.log(error);
     const singleUser = data?.singleUser || [];
-    console.log(singleUser);
+    // console.log(singleUser);
 
     const singleQuiz = data?.singleUser.scores || [];
 

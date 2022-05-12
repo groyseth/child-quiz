@@ -31,11 +31,11 @@ export default function ProfileNav() {
                Logout
             </Link>
         </li>
-        <li className='nav-item'>
+        {/* <li className='nav-item'>
             <p id='nav-Time' className='nav-links'>
-                {/* {handleTime()} */}
+               
             </p>
-        </li>
+        </li> */}
     </ul>
     
 </nav>

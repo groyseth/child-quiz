@@ -66,7 +66,7 @@ export default function Quiz2() {
 			],
 		},
 	];
-	console.log(questions);
+	// console.log(questions);
 	const [addScore] = useMutation(ADD_SCORE);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
@@ -87,7 +87,7 @@ export default function Quiz2() {
 			setDisable(true);
 		}
 		if(!isCorrect){
-			console.log("not correct");
+			// console.log("not correct");
 			setCorrectAnswer(false)
 			setshowWrongAnswer(true)
 			let Key = new Audio(sounds.wrong1);
@@ -98,7 +98,7 @@ export default function Quiz2() {
 		}
 	};
 	const handleNextButton = () => {
-		console.log("click");
+		// console.log("click");
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
 			setshowWrongAnswer(false);
@@ -112,7 +112,7 @@ export default function Quiz2() {
 		}
 	}
 	const handleSubmit = async (interger) => {
-		console.log(interger);
+		// console.log(interger);
 		try {
 			const { data } = await addScore({
 				variables: {
@@ -123,14 +123,14 @@ export default function Quiz2() {
 				},
 			});
 			window.location.replace('/quizDashboard')
-			console.log(data);
+			// console.log(data);
 		} catch (err) {
 			console.error(JSON.stringify(err));
 		}
 	}
 	function handleMusic() {
 		var randomArr = ["g","h"," ","j","k"];
-		console.log(randomArr);
+		// console.log(randomArr);
 
 		var i = 0
 		var player = setInterval(() => {
@@ -142,19 +142,19 @@ export default function Quiz2() {
 			}
 			switch (test) {
 				case "g":
-					console.log("keypressedg");
+					// console.log("keypressedg");
 					gLiteralKey();
 					break;
 				case "h":
-					console.log("keypressedh");
+					// console.log("keypressedh");
 					hLiteralKey();
 					break;
 				case "j":
-					console.log("keypressedj");
+					// console.log("keypressedj");
 					jLiteralKey();
 					break;
 				case "k":
-					console.log("keypressedk");
+					// console.log("keypressedk");
 					kLiteralKey();
 					break;
 
@@ -162,7 +162,7 @@ export default function Quiz2() {
 			}
 		}, 187);
 
-		console.log("playback");
+		// console.log("playback");
 		const gLiteralKey = () => {
 			let Key = new Audio(sounds.gkey);
 			Key.addEventListener("canplaythrough", event => {

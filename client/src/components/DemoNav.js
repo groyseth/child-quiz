@@ -25,10 +25,10 @@ export default function DemoNav() {
                 Back
             </Link>
         </li>
-        <li className='nav-item'>
-            <Link  className='nav-links' onClick={() => window.location.reload()}>
+        <li className='nav-item' style={{cursor: "pointer"}}>
+            <p className='nav-links' onClick={() => window.location.reload()}>
                 Retry
-            </Link>
+            </p>
         </li>
         <li className='nav-item' id='nav-Time'>
            <p className='nav-links'>
