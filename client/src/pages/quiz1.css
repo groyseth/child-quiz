@@ -138,9 +138,12 @@
     right: 26px;
     width: 56vw;
     }
-    .score-section h1 {
-        width: 37vw;
-    }   
+      
+}
+@media(max-width:450px){
+    .score-section {
+        width: 81vw;
+    } 
 }
 @media(min-width:412px){
     .animation button{
