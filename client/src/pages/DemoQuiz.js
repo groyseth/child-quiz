@@ -92,7 +92,7 @@ export default function DemoQuiz() {
 		}
 	}
 	function handleMusic() {
-		var randomArr = ["g", "h", "j", "k"];
+		var randomArr = ["g", "h"," ", "j", "k"];
 		console.log(randomArr);
 
 		var i = 0
@@ -123,7 +123,7 @@ export default function DemoQuiz() {
 
 
 			}
-		}, 180);
+		}, 187);
 
 		console.log("playback");
 

@@ -129,7 +129,7 @@ export default function Quiz2() {
 		}
 	}
 	function handleMusic() {
-		var randomArr = ["g","h","","j","k"];
+		var randomArr = ["g","h"," ","j","k"];
 		console.log(randomArr);
 
 		var i = 0
