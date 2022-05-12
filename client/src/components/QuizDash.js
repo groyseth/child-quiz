@@ -122,16 +122,16 @@ setTimeout(() => {
     <div className='backGround' >
       <NavBar />
       <div className='dash'>
-        <div style={{ marginTop: '8%' }}>
-          <h1 className='quizTitle'>quiz selection</h1>
+        <div  className='marginDash'>
+          <h1 className='quizTitle'>Quiz Selection</h1>
           <div className='quizSelect' >
-            <button onClick={() => window.location.replace('/quiz1')}>
+            <button onClick={() => window.location.replace('/quiz1')} className='buttonQuiz'>
               Learn Your Shapes!
             </button>
-            <button onClick={() => window.location.replace('/quiz2')}>
+            <button onClick={() => window.location.replace('/quiz2')} className='buttonQuiz'>
               Learn Your Numbers!
             </button>
-            <button onClick={() => window.location.replace('/quiz3')}>
+            <button onClick={() => window.location.replace('/quiz3')} className='buttonQuiz'>
               Learn Your Animals
             </button>
           </div>

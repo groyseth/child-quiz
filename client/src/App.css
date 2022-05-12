@@ -57,10 +57,12 @@
 .landingStyle{
     top: 30%;
 }
-#nav-Time{
-    display: none;
-}
 
+}
+@media(max-width:505px){
+    #nav-Time{
+        display: none;
+    }
 }
 /* mobile freindly
 add a quiz colors

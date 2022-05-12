@@ -3,12 +3,9 @@
     width: 27%;
     height: 28vh;
     display: grid;
-    /* grid-template-areas: 'left center right'; */
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-rows: 79px;
-    grid-gap: 4px;
-    width: 31vw;
-    /* background-color: rgb(244, 240, 244); */
+    grid-gap: 16px;
+    width: 37vw;
+    grid-template-rows: auto auto auto;
     text-align: -webkit-center;
 }
 .quizSelect button{
@@ -18,9 +15,13 @@
 .dash{
     text-align: -webkit-center;
 }
+
 @media(max-width:391px){
     .quizSelect{
         width: 57vw;
         height: 32vh;
+    }
+    .quizSelect button{
+        /* height: 10vh; */
     }
 }

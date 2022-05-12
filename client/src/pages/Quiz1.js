@@ -41,7 +41,7 @@ export default function Quiz1() {
 		{
 			questionText:
 				<div>
-					<img src={images.star} alt="star" className='tri' />
+					<img src={images.star} alt="star"  />
 					<h1>This shape is a...?</h1>
 				</div>,
 			answerOptions: [

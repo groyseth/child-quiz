@@ -63,8 +63,49 @@
     border-radius: 28px 31px;
     width: 35vw;
 }
+.marginDash{
+  margin-top: 20%;
+}
 @media(max-width:391px){
   .quizTitle{
     width: 83vw;
+  }
+}
+@media(min-width:820px){
+    .quizTitle{
+      width: 68vw;
+    height: 6vh;
+    }
+}
+@media(min-width:540px){
+  .quizTitle{
+    width: 61vw;
+  }
+}
+@media(min-width:414px){
+  .quizTitle{
+    width: 71vw;
+  }
+}
+@media(min-width:393px){
+  .quizTitle{
+    width: 70vw;
+  }
+}
+@media(min-width:1024px){
+    .marginDash{
+      margin-top: 10vh;
+    }
+    .quizTitle{
+      height: 11vh;
+      width: 48vw;
+    }
+    .navbar{
+      height: 6vh;
+    }
+}
+@media(min-width:815px){
+  .quizTitle{
+    height: 13vh;
   }
 }
